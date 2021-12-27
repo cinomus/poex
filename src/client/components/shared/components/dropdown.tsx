@@ -10,11 +10,8 @@ const Dropdown = () => {
   }
 
   return (
-    <div
-      className={dropdownOpen ? classnames(s.dropdown, s.open) : s.dropdown}
-      onClick={onClickHandler}
-    >
-      <div className={s.selected}>
+    <div className={dropdownOpen ? classnames(s.dropdown, s.open) : s.dropdown}>
+      <div className={s.selected} onClick={onClickHandler}>
         <div
           className={classnames(s.avatar, s.icon)}
           style={{
