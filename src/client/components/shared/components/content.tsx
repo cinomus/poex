@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import s from '../../../styles/contentStyles.module.css';
 import Header from '../../marketplace/header';
+import Container4x from '../../marketplace/container4x';
 
 interface ContentProps {
   children?: React.ReactChildren | React.ReactElement;
 }
 
 const Content: FC<ContentProps> = ({ children }) => {
+  const [selectedAlg, setSelectedAlg] = useState('Scrypt');
+
   return (
     <div id={s.content}>
       {children}
@@ -15,246 +18,10 @@ const Content: FC<ContentProps> = ({ children }) => {
           <Header />
         </div>
         <div data-v-1e611a18="" data-v-3a5fbf82="">
-          <div data-v-1e611a18="" className="container4x">
-            <div data-v-1e611a18="" className="header mt40">
-              <h3 data-v-1e611a18="" className="inline-block">
-                Отображать
-                <span data-v-1e611a18="" className="text-bold pointer">
-                  {' Все ордеры '}
-                </span>
-                для
-              </h3>
-              <div
-                data-v-5760e22c=""
-                data-v-1e611a18=""
-                tabIndex={0}
-                className="sel-box selectbox"
-              >
-                <div data-v-5760e22c="" aria-haspopup="true" className="field">
-                  <div data-v-5760e22c="" className="arrows">
-                    <i data-v-5760e22c="" className="fa fa-caret-up" />
-                    <i data-v-5760e22c="" className="fa fa-caret-down" />
-                  </div>
-                  Scrypt
-                </div>
-                <div data-v-5760e22c="" className="dropdown flex flex--no-wrap">
-                  <div data-v-5760e22c="" role="listbox" className="options">
-                    <div
-                      data-v-5760e22c=""
-                      role="option"
-                      aria-selected="true"
-                      className="option selected"
-                    >
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Scrypt{' '}
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        SHA256
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        X11
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        X13
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Keccak
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        NeoScrypt
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Qubit
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Quark
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Lyra2REv2
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        DaggerHashimoto
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Decred
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Lbry
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Equihash
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Blake2s
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Lyra2Z
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        X16R
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        SHA256AsicBoost
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        ZHash
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        GrinCuckatoo31
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Lyra2REv3
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        CryptoNightR
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        CuckooCycle
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        X16Rv2
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        RandomXmonero
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Eaglesong
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        GrinCuckatoo32
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Handshake
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        KAWPOW
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        BeamV3
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Octopus
-                      </span>
-                    </div>
-                    <div data-v-5760e22c="" role="option" className="option">
-                      <span data-v-1e611a18="" data-v-5760e22c="">
-                        Autolykos
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div data-v-1e611a18="" className="checkboxes">
-                <div
-                  data-v-7bd39ff2=""
-                  data-v-1e611a18=""
-                  tabIndex={0}
-                  className="hide-charts mr24 checkbox"
-                >
-                  <input data-v-7bd39ff2="" type="checkbox" id="checkbox97" />{' '}
-                  <label data-v-7bd39ff2="">
-                    <span data-v-7bd39ff2="">Показывать только мои ордеры</span>
-                  </label>
-                </div>
-                <div
-                  data-v-7bd39ff2=""
-                  data-v-1e611a18=""
-                  tabIndex={0}
-                  className="hide-charts mr24 checkbox"
-                >
-                  <input data-v-7bd39ff2="" type="checkbox" id="checkbox98" />{' '}
-                  <label data-v-7bd39ff2="">
-                    <span data-v-7bd39ff2="">
-                      Скрыть графики на моих ордерах
-                    </span>
-                  </label>
-                </div>
-                <div
-                  data-v-7bd39ff2=""
-                  data-v-1e611a18=""
-                  tabIndex={0}
-                  className="hide-charts checkbox"
-                >
-                  <input data-v-7bd39ff2="" type="checkbox" id="checkbox99" />{' '}
-                  <label data-v-7bd39ff2="">
-                    <span data-v-7bd39ff2="">
-                      Скрыть ордеры с нулевой скоростью
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <br data-v-1e611a18="" style={{ clear: 'both' }} />
-            </div>
-            <div data-v-1e611a18="" className="text-center">
-              <p data-v-1e611a18="">
-                Размещение ордеров на данный момент отключено для вашего
-                аккаунта
-                <br data-v-1e611a18="" />{' '}
-                <a data-v-1e611a18="" className="btn primary small normal mt8">
-                  Включить покупку
-                </a>
-              </p>
-            </div>
-          </div>
-
+          <Container4x
+            selectedAlg={selectedAlg}
+            selectAlgFunc={setSelectedAlg}
+          />
           <div data-v-1e611a18="" className="container4x">
             <div data-v-1e611a18="" className="row mt24">
               <div

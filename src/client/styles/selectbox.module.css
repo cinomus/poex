@@ -1,0 +1,245 @@
+
+div.selectbox {
+    position: relative
+}
+
+div.selectbox .field {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    color: #3a3939;
+    cursor: pointer;
+    font-size: 14px;
+    height: 39px;
+    line-height: 39px;
+    overflow: hidden;
+    padding: 0 32px 0 16px;
+    text-overflow: ellipsis;
+    transition: box-shadow .2s ease;
+    white-space: nowrap
+}
+
+.theme-dark div.selectbox .field {
+    background-color: #052339;
+    border: 1px solid #40494f;
+    color: #eee
+}
+
+div.selectbox .field.placeholder {
+    color: #cecdcd
+}
+
+.theme-dark div.selectbox .field {
+    background-color: rgba(0, 0, 0, .25);
+    color: #fff
+}
+
+.theme-dark div.selectbox .dropdown {
+    background-color: #051a2a;
+    color: #fff
+}
+
+div.selectbox .input-group-prepend {
+    border-right: 1px solid #eee;
+    color: #cecdcd;
+    height: 37px;
+    line-height: 38px;
+    position: absolute;
+    text-align: center;
+    top: 1px;
+    width: 44px;
+    z-index: 1
+}
+
+.theme-dark div.selectbox .input-group-prepend {
+    border-right: 1px solid #40494f;
+    margin-left: 1px
+}
+
+div.selectbox .input-group-prepend ~ .field {
+    padding-left: 56px
+}
+
+div.selectbox:focus {
+    outline: none
+}
+
+div.selectbox:focus .field {
+    border: 1px solid #fba342;
+    box-shadow: 0 5px 10px 0 rgba(251, 163, 66, .1)
+}
+
+div.selectbox.open .field {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+div.selectbox .arrows {
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    width: 15px
+}
+
+div.selectbox .arrows i {
+    color: #cecdcd;
+    display: block;
+    font-size: 12px;
+    left: 5px;
+    line-height: 6px;
+    position: relative;
+    top: 3px
+}
+
+div.selectbox.medium .field {
+    height: 56px;
+    line-height: 56px
+}
+
+div.selectbox.medium .inputGroupPrepend {
+    height: 54px;
+    line-height: 55px
+}
+
+div.selectbox.medium .arrows {
+    top: 20px
+}
+
+div.selectbox.large .field {
+    height: 72px;
+    line-height: 72px
+}
+
+div.selectbox.large .inputGroupPrepend {
+    height: 70px;
+    line-height: 71px
+}
+
+div.selectbox.large .arrows {
+    top: 28px
+}
+
+div.selectbox.disabled, div.selectbox:disabled {
+    border: 0;
+    box-shadow: inset 1px 4px 6px -5px rgba(35, 35, 35, .45);
+    opacity: .5
+}
+
+div.selectbox.disabled .field, div.selectbox:disabled .field {
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    cursor: not-allowed
+}
+
+div.selectbox .dropdown {
+    background: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    flex-direction: column;
+    max-height: 0;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    transition: max-height .2s;
+    z-index: 2
+}
+
+div.selectbox .dropdown .search {
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    padding: 8px
+}
+
+.theme-dark div.selectbox .dropdown .search {
+    border-bottom: 1px solid #40494f
+}
+
+div.selectbox .dropdown .search input {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 10px 8px;
+    width: 100%
+}
+
+.theme-dark div.selectbox .dropdown .search input {
+    background-color: rgba(0, 0, 0, .25);
+    border: 1px solid #40494f;
+    color: #eee
+}
+
+div.selectbox .dropdown .search input:focus {
+    border: 1px solid #fba342;
+    outline: none
+}
+
+div.selectbox .dropdown .search input::-moz-placeholder {
+    color: #cecdcd;
+    font-size: 14px
+}
+
+div.selectbox .dropdown .search input:-ms-input-placeholder {
+    color: #cecdcd;
+    font-size: 14px
+}
+
+div.selectbox .dropdown .search input::placeholder {
+    color: #cecdcd;
+    font-size: 14px
+}
+
+div.selectbox .dropdown .options {
+    flex: 1;
+    overflow: hidden;
+    overflow-y: auto
+}
+
+div.selectbox .dropdown .options .option {
+    cursor: pointer;
+    padding: 8px 16px
+}
+
+div.selectbox .dropdown .options .option:hover {
+    background-color: rgba(251, 163, 66, .25)
+}
+
+div.selectbox .dropdown .options .option.selected {
+    background-color: #fba342;
+    color: #fff
+}
+
+div.selectbox.open .dropdown {
+    max-height: 350px
+}
+
+.theme-dark div.selectbox.open .dropdown {
+    border: 1px solid #40494f
+}
+
+div.selectbox.up.open .field {
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+div.selectbox.up .dropdown {
+    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    bottom: 100%;
+    box-shadow: 0 -1px 4px 0 rgba(35, 35, 35, .16)
+}
+
+div.selectbox.small .field {
+    height: 24px;
+    line-height: 24px
+}
+
+div.selectbox.small .arrows {
+    top: 4px
+}
