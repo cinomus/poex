@@ -38,7 +38,7 @@ const MainTopMenu: FC = () => {
             Кабинет
           </a>
           <a href="https://www.nicehash.com/my/wallets/" className={s.wallets}>
-            <i className="icon-wallet" /> Кошельки
+            <i className="fas fa-wallet" /> Кошельки
             <span className={s.amount}>≈ 0.00000000 BTC</span>
           </a>
         </div>
