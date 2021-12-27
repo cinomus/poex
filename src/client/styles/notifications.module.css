@@ -1,0 +1,97 @@
+.notifications {
+    bottom: 56px;
+    left: 56px;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 800
+}
+
+@media only screen and (max-width: 767px) {
+    .notifications {
+        bottom: 0;
+        left: 0
+    }
+}
+
+.notifications .fadeEnterActive, .notifications .fadeLeaveActive {
+    transition: opacity .3s
+}
+
+.notifications .fadeEnter, .notifications .fadeLeaveTo {
+    opacity: 0
+}
+
+.notifications .alert {
+    word-wrap: break-word;
+    background: #3a3939;
+    border-radius: 4px;
+    box-shadow: 0 32px 40px 0 rgba(35, 35, 35, .16);
+    color: #3a3939;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    margin-top: 16px;
+    overflow-wrap: break-word;
+    padding: 16px 32px 16px 16px;
+    position: relative;
+    text-align: left;
+    width: 320px;
+    -ms-word-break: break-all;
+    word-break: break-word
+}
+
+.notifications .alert.dark {
+    background: #052339
+}
+
+@media only screen and (max-width: 767px) {
+    .notifications .alert {
+        margin-top: 4px;
+        width: 100%
+    }
+}
+
+.notifications .alert .close {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    color: #959595;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    position: absolute;
+    right: 12px;
+    text-align: center;
+    top: 12px;
+    width: 24px
+}
+
+.notifications .alert .close:hover {
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    color: #fba342
+}
+
+.notifications .alert.alertWarning {
+    border-left: 8px solid #fba342;
+    color: #fff
+}
+
+.notifications .alert.alertInfo {
+    border-left: 8px solid #128ede;
+    color: #fff
+}
+
+.notifications .alert.alertSuccess {
+    border-left: 8px solid #68b641;
+    color: #fff
+}
+
+.notifications .alert.alertDanger, .notifications .alert.alertError {
+    border-left: 8px solid #e92424;
+    color: #fff
+}
+
+.notifications .alert a {
+    text-decoration: underline
+}

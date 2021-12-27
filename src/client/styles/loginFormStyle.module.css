@@ -1,0 +1,143 @@
+.background {
+    background-color: transparent, transparent, transparent;
+    background-image: url(../../../public/images/shared/loginBgImage.svg), url(../../../public/images/shared/loginBgImage2.svg), linear-gradient(305deg, #8f14ff, #4ddeff);
+    background-position: -10px 50px, right 0, 0;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: auto, auto, auto;
+    height: 33%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1
+}
+
+.backgroundBottom {
+    height: 67%;
+    top: 33%
+}
+
+.box {
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 110px auto;
+    width: 416px
+}
+.boxAlt {
+    margin: 25px auto
+}
+
+.boxInner {
+    box-shadow: 0 4px 12px 0 rgba(35, 35, 35, .16);
+    overflow: hidden;
+    padding: 48px
+}
+@media only screen and (max-width: 767px) {
+    .box[data-v-75842485] {
+        margin: 15px auto;
+        max-width: 416px;
+        width: 90%
+    }
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .boxInner {
+        padding: 48px 24px
+    }
+}
+
+.backLink {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fcfcfc;
+    font-weight: 700;
+    line-height: 1.33;
+    padding: 11px 16px 12px;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    top: 16px
+}
+
+.backLink i {
+    font-size: 16px;
+    line-height: .75;
+    margin-right: 10px;
+    position: relative;
+    top: 2px
+}
+
+.backLinkAlt {
+    border: 1px solid #fba342;
+    color: #3a3939
+}
+
+.nhm[data-v-6e8fd0e4] {
+    margin: 24px auto;
+    max-width: 320px
+}
+
+@media only screen and (max-width: 479px) {
+    .nhm[data-v-6e8fd0e4] {
+        max-width: 90%
+    }
+}
+
+.icon {
+    background: url(../../../public/images/shared/loginBgIcon.png);
+    background-size: 160px;
+    height: 160px;
+    margin: -48px auto 0;
+    position: relative;
+    width: 160px
+}
+
+.icon .logo {
+    background-color: #fff;
+    background-image: url(../../../public/images/shared/logo.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px
+
+}
+
+.twofaInvalid .close {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    color: #959595;
+    cursor: pointer;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    width: 24px
+}
+
+.twofaInvalid .close:hover {
+    color: #fba342
+}
+
+.twofaStep h1 {
+    line-height: 1.6
+}
+
+.twofaStep .subtitle {
+    line-height: 1.43
+}
+
+.twofaStep .icon {
+    /*background-image: url(../my/media/935eb6273af91780f17a.png);*/
+    background-size: contain;
+    height: 72px;
+    margin: 0 auto 24px;
+    width: 92px
+}
+

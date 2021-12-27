@@ -1,0 +1,135 @@
+.footer {
+    background: #eee;
+    line-height: 64px;
+    min-height: 64px;
+    padding: 0 20px
+}
+
+.themeDark .footer {
+    background: #031a2a;
+    color: #eee
+}
+
+.footer .leftPart {
+    max-width: 50%;
+    align-items: center;
+    display: flex
+}
+
+@media only screen and (max-width: 991px) {
+    .footer .left-part {
+        justify-content: center
+    }
+}
+
+.footer ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+@media only screen and (max-width: 767px) {
+    .footer ul {
+        flex-direction: column;
+        width: 100%
+    }
+}
+
+.footer ul li a {
+    color: #959595;
+    display: block;
+    font-size: 12px;
+    padding: 0 20px;
+    white-space: nowrap
+}
+
+@media only screen and (max-width: 767px) {
+    .footer ul li a {
+        line-height: 40px;
+        padding: 0 8px;
+        text-align: center
+    }
+}
+
+.footer .rightPart {
+    max-width: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    min-height: 64px
+}
+
+@media only screen and (max-width: 991px) {
+    .footer .right-part {
+        justify-content: center
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .footer .rightPart {
+        flex-wrap: wrap;
+        justify-content: center
+    }
+}
+
+.footer .rightPart .copyRights {
+    display: inline-block;
+    font-size: 12px;
+    height: 64px;
+    line-height: 64px;
+    margin-right: 32px;
+    white-space: nowrap
+}
+
+@media only screen and (max-width: 767px) {
+    .footer .rightPart .copyRights {
+        margin-left: 16px;
+        margin-right: 16px;
+        order: 2
+    }
+}
+
+.footer .rightPart .settingsPart {
+    align-items: center;
+    display: flex
+}
+
+@media only screen and (max-width: 767px) {
+    .footer .rightPart .settingsPart {
+        justify-content: center;
+        order: 1
+    }
+
+    .footer .rightPart .settingsPart .locale {
+        margin-right: 0
+    }
+}
+
+.footer .rightPart .currency, .footer .rightPpart .locale {
+    display: inline-block;
+    line-height: 1;
+    margin-bottom: 12px;
+    margin-right: 16px;
+    margin-top: 13px;
+    position: relative;
+    text-align: left
+}
+
+.footer .rightPart .currency {
+    width: 89px
+}
+
+.footer .rightPart .locale {
+    width: 145px
+}
+.row {
+     margin-left: -16px;
+     margin-right: -16px
+ }
+
+.flex, .row {
+    display: flex;
+    flex-wrap: wrap
+}

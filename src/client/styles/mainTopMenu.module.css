@@ -1,0 +1,495 @@
+.mainTopMenu {
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    display: flex;
+    flex-direction: row;
+    height: 64px;
+    margin-bottom: 32px
+}
+
+.themeDark .mainTopMenu {
+    background: #052339;
+    border-bottom: 1px solid #40494f;
+    box-shadow: none
+}
+
+@media only screen and (max-width: 767px) {
+    .mainTopMenu {
+        margin-bottom: 16px
+    }
+}
+
+.mainTopMenu .logo {
+    background-size: cover;
+    background-position: 0;
+    height: 40px;
+    margin-right: 0;
+    margin-top: 12px;
+    width: 50px;
+    margin-left: 16px;
+    position: relative;
+    background-image: url(../../../public/images/shared/poex.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+/*.mainTopMenu .logo[data-v-1daabd86]:after {*/
+/*    background-image: url(../../../public/images/shared/poex.png);*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: contain;*/
+/*    content: " ";*/
+/*    display: block;*/
+/*    height: 32px;*/
+/*    left: calc(50% - 16px);*/
+/*    position: absolute;*/
+/*    top: calc(50% - 16px);*/
+/*    width: 32px*/
+/*}*/
+
+.mainTopMenu .mobileMenu {
+    border-bottom: 2px solid transparent;
+    display: none;
+    flex: 1
+}
+
+@media only screen and (max-width: 991px) {
+    .mainTopMenu .mobileMenu {
+        display: inline-block
+    }
+}
+
+.mainTopMenu .mobileMenu .selected {
+    color: #959595;
+    cursor: pointer;
+    font-weight: 500;
+    height: 62px;
+    line-height: 64px;
+    overflow: hidden;
+    padding: 0 24px
+}
+
+.mainTopMenu .mobileMenu .selected i {
+    width: 20px
+}
+
+.mainTopMenu .mobileMenu .options {
+    background: #fff;
+    box-shadow: 0 8px 16px 0 rgba(35, 35, 35, .16);
+    display: none;
+    left: 0;
+    padding: 12px 0;
+    position: absolute;
+    right: 0;
+    top: 64px;
+    z-index: 2
+}
+
+.theme-dark .mainTopMenu .mobileMenu .options {
+    background: #052339;
+    border-bottom: 1px solid #40494f
+}
+
+.mainTopMenu .mobileMenu .options a {
+    color: #3a3939;
+    display: block;
+    font-weight: 500;
+    padding: 12px 24px
+}
+
+.theme-dark .mainTopMenu .mobileMenu .options a {
+    color: #eee
+}
+
+.mainTopMenu .mobileMenu .options a.option {
+    padding: 12px 24px 12px 48px
+}
+
+.mainTopMenu .mobileMenu .options a i {
+    color: #959595;
+    width: 22px
+}
+
+.mainTopMenu .mobileMenu .options a.routerLinkActive, .mainTopMenu .mobileMenu .options a.router-link-active i.fa, .main-top-menu .mobile-menu .options a.router-link-active i.fas {
+    color: #4ddeff
+}
+
+.mainTopMenu .mobileMenu .options a.wallets {
+    border: 1px solid #4ddeff;
+    border-radius: 4px;
+    float: none;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    margin: 12px 24px;
+    padding: 0 16px;
+    position: static
+}
+
+.mainTopMenu .mobileMenu .options a.wallets i {
+    display: inline-block;
+    margin-right: 0;
+    width: 18px
+}
+
+.mainTopMenu .mobileMenu .options a.wallets span.amount {
+    float: right
+}
+
+.mainTopMenu .mobileMenu.open {
+    border-bottom: 2px solid #4ddeff
+}
+
+.mainTopMenu .mobileMenu.open .selected {
+    color: #4ddeff
+}
+
+.mainTopMenu .mobileMenu.open .options {
+    display: block
+}
+
+.mainTopMenu .menuRight {
+    display: flex;
+    flex-direction: row
+}
+
+.mainTopMenu .menuRight .wallets {
+    border: 1px solid #8f14ff;
+    border-radius: 4px;
+    color: #8f14ff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 40px;
+    margin: 12px 24px 0;
+    padding: 0 15px;
+    transition: background .2s ease, color .2s ease
+}
+
+@media only screen and (max-width: 767px) {
+    .mainTopMenu .menuRight .wallets {
+        display: none
+    }
+}
+
+.mainTopMenu .menuRight .wallets:hover {
+    background: #8f14ff;
+    color: #fff
+}
+
+.mainTopMenu .menuRight .wallets:hover i {
+    color: #fff
+}
+
+.mainTopMenu .menuRight .wallets i {
+    color: #8f14ff;
+    margin: 0;
+    transition: color .2s ease
+}
+
+.mainTopMenu .menuRight .wallets.routerLinkActive, .mainTopMenu .menuRight .wallets.routerLinkActive i {
+    background: #8f14ff;
+    color: #fff
+}
+
+.mainTopMenu .menuRight .wallets span.text {
+    margin-left: 4px
+}
+
+@media only screen and (max-width: 1199px) {
+    .mainTopMenu .menuRight .wallets span.text {
+        display: none
+    }
+}
+
+.mainTopMenu .menuRight .wallets span.value{
+    margin-left: 4px
+}
+
+@media only screen and (max-width: 1199px) {
+    .mainTopMenu .menuRight .wallets span.value {
+        display: none
+    }
+}
+
+.mainTopMenu i[class*=icon-] {
+    margin-right: 4px;
+    position: relative;
+    top: 1px
+}
+
+.mainTopMenu {
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    height: 64px;
+    margin-bottom: 32px
+}
+
+.theme-dark .mainTopMenu {
+    background: #052339;
+    border-bottom: 1px solid #40494f;
+    box-shadow: none
+}
+
+@media only screen and (max-width: 767px) {
+    .mainTopMenu {
+        margin-bottom: 16px
+    }
+}
+ul.menuLeft {
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+@media only screen and (max-width: 991px) {
+    ul.menuLeft {
+        display: none
+    }
+}
+
+.tradeviewPage2 ul.menuLeft, .tradeviewPage ul.menuLeft {
+    font-size: 12px;
+    margin-left: 0;
+    margin-right: 32px
+}
+
+/*.mainTopMenu .logo {*/
+/*    background: linear-gradient(90deg, #4ddeff, #4ddeff);*/
+/*    float: left;*/
+/*    height: 100%;*/
+/*    position: relative;*/
+/*    width: 71px*/
+/*}*/
+
+/*.themeDark .mainTopMenu .logo {*/
+/*    background: 0 0;*/
+/*    background-color: #052339;*/
+/*    border-right: 1px solid #40494f*/
+/*}*/
+
+/*.mainTopMenu .logo:after {*/
+/*    !*background: url(/html/my/media/01985fec624fceb1a6f8.svg) no-repeat;*!*/
+/*    content: " ";*/
+/*    display: block;*/
+/*    height: 32px;*/
+/*    left: calc(50% - 16px);*/
+/*    position: absolute;*/
+/*    top: calc(50% - 16px);*/
+/*    width: 32px*/
+/*}*/
+
+/*.themeDark .mainTopMenu .logo:after {*/
+/*    !*background-image: url(/html/my/media/37944069cb07dfea67b8.svg);*!*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 32px*/
+/*}*/
+
+/*.mainTopMenu div.menuLeft {*/
+/*    float: left;*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding: 12px 16px*/
+/*}*/
+
+/*@media only screen and (max-width: 767px) {*/
+/*    .mainTopMenu div.menuLeft {*/
+/*        display: none*/
+/*    }*/
+/*}*/
+
+/*.mainTopMenu div.menuLeft button, .mainTopMenu div.menu-left div{*/
+/*    display: inline-block*/
+/*}*/
+
+/*.mainTopMenu div.menuLeft button {*/
+/*    margin-left: 8px*/
+/*}*/
+
+/*.mainTopMenu .menuRight {*/
+/*    float: right;*/
+/*    padding-right: 16px;*/
+/*    white-space: nowrap*/
+/*}*/
+
+/*.mainTopMenu .menuRight .btn {*/
+/*    display: inline-block;*/
+/*    margin-left: 8px;*/
+/*    margin-top: 12px*/
+/*}*/
+
+/*@media only screen and (max-width: 479px) {*/
+/*    .mainTopMenu .menuRight .btn {*/
+/*        padding-left: 10px;*/
+/*        padding-right: 10px*/
+/*    }*/
+/*}*/
+/*[data-v-3120c5b3*/
+
+
+ul.menuLeft {
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+@media only screen and (max-width: 991px) {
+    ul.menuLeft{
+        display: none
+    }
+}
+
+.tradeviewPage2 ul.menuLeft, .tradeviewPage ul.menuLeft {
+    font-size: 12px;
+    margin-left: 0;
+    margin-right: 32px
+}
+
+ul.menuLeft li {
+    float: left
+}
+
+ul.menuLeft li a {
+    border-bottom: 2px solid transparent;
+    color: #959595;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 64px;
+    line-height: 64px;
+    margin-left: 16px;
+    margin-right: 16px
+}
+
+@media only screen and (max-width: 991px) {
+    ul.menuLeft li a {
+        margin-left: 24px
+    }
+}
+
+ul.menuLeft li a:hover {
+    border-bottom: 2px solid rgba(77, 222, 255, 255);
+    color: #4ddeff;
+}
+
+ul.menuLeft li a.routerLinkActive, ul.menuLeft li a.selected {
+    border-bottom: 2px solid rgba(77, 222, 255, 255);
+    color: #4ddeff;
+}
+
+ul.menuLeft li a i.fa, ul.menuLeft li a i.fas {
+    font-size: 12px;
+    font-weight: 900;
+    margin-right: 4px
+}
+
+ul.menuLeft .moredown {
+    margin-left: 16px;
+    margin-right: 16px;
+    position: relative
+}
+
+ul.menuLeft .moredown i.fa, ul.menuLeft .moredown i.fas {
+    font-size: 12px;
+    font-weight: 900;
+    margin-right: 4px
+}
+
+ul.menuLeft .moredown .selected {
+    border-bottom: 2px solid transparent;
+    color: #959595;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    height: 64px;
+    line-height: 64px;
+    position: relative
+}
+
+ul.menuLeft .moredown .selected .arrow {
+    margin-left: 8px
+}
+
+ul.menuLeft .moredown .selected.routerLinkActive {
+    border-bottom: 2px solid #fba342;
+    color: #fba342
+}
+
+ul.menuLeft .moredown:hover .selected {
+    border-bottom: 2px solid rgba(77, 222, 255, 255);
+    color: #4ddeff;
+}
+
+ul.menuLeft .moredown.selected {
+    border-bottom: 2px solid #fba342
+}
+
+ul.menuLeft .moredown .options {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(35, 35, 35, .16);
+    display: none;
+    max-height: 0;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 55px;
+    z-index: 2
+}
+
+.themeDark ul.menu-left .moredown .options {
+    background: #052339;
+    border: 1px solid #40494f
+}
+
+.themeDark .tradeviewPage2 ul.menuLeft .moredown .options {
+    background: #252525
+}
+
+ul.menuLeft .moredown .options .option {
+    margin: 0
+}
+
+ul.menuLeft .moredown .options a {
+    color: #3a3939;
+    display: block;
+    font-weight: 400;
+    height: auto;
+    line-height: 1;
+    padding: 12px 32px 12px 16px;
+    transition: none;
+    white-space: nowrap
+}
+
+.themeDark ul.menu-left .moredown .options a {
+    color: #eee
+}
+
+ul.menuLeft .moredown .options a:hover {
+    background: #eee;
+    color: #3a3939
+}
+
+ul.menuLeft .moredown .options a:hover:not(.selected) {
+    border-bottom: 2px solid #eee
+}
+
+.themeDark ul.menuLeft .moredown .options a:hover {
+    background: 0 0;
+    color: #fba342
+}
+
+.themeDark ul.menuLeft .moredown .options a:hover:not(.selected) {
+    border-bottom: 2px solid transparent
+}
+
+ul.menuLeft .moredown.open .selected {
+    color: #fba342
+}
+
+ul.menuLeft .moredown.open .options {
+    display: block;
+    max-height: 300px
+}

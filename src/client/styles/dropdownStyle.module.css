@@ -1,0 +1,408 @@
+
+.dropdown {
+    display: block;
+    float: left;
+    position: relative;
+    width: 80px
+}
+
+.dropdown .selected {
+    border-bottom: 2px solid transparent;
+    border-left: 1px solid #eee;
+    border-top: 2px solid transparent;
+    cursor: pointer;
+    height: 64px;
+    line-height: 62px;
+    position: relative;
+    text-align: center
+}
+
+.themeDark .dropdown .selected {
+    border-left: 1px solid #40494f
+}
+
+.tradeviewPage2 .dropdown .selected, .tradeviewPage .dropdown .selected {
+    height: 64px;
+    line-height: 62px
+}
+
+@media only screen and (max-width: 767px) {
+    .dropdown .selected, .tradeview-page2 .dropdown .selected, .tradeview-page .dropdown .selected {
+        height: 64px
+    }
+}
+
+.dropdown .selected:hover {
+    border-bottom: 2px solid #4ddeff
+}
+
+.dropdown .selected .arrow {
+    color: #959595;
+    font-size: 12px;
+    position: absolute;
+    right: 24px;
+    top: 14px
+}
+
+.dropdown .selected .icon {
+    vertical-align: middle
+}
+
+.dropdown .selected .user {
+    overflow: hidden;
+    padding: 12px 48px 0 78px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.dropdown .selected .settings-label {
+    color: #959595;
+    font-size: 12px;
+    padding: 8px 48px 0 78px
+}
+
+@media only screen and (max-width: 1199px) {
+    .dropdown .arrow, .dropdown .settings-label, .dropdown .user {
+        display: none
+    }
+}
+
+@media (max-width: 1150px) {
+    .dropdown {
+        width: 52px !important
+    }
+}
+
+.dropdown .options {
+    background: #fff;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(35, 35, 35, .16);
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: 360px;
+    z-index: 10
+}
+
+.tradeviewPage2 .dropdown .options, .tradeviewPage .dropdown .options {
+    border-top: 0
+}
+
+.themeDark .dropdown .options {
+    background: #031a2a;
+    border: 1px solid #40494f
+}
+
+.themeDark .tradeviewPage2 .dropdown .options {
+    background: #252525
+}
+
+@media only screen and (max-width: 479px) {
+    .dropdown .options {
+        max-width: 100vw
+    }
+}
+
+.dropdown .options .option a {
+    color: #3a3939;
+    display: block;
+    font-size: 14px;
+    padding: 12px 16px;
+    transition: none
+}
+
+.themeDark .dropdown .options .option a {
+    color: #fff
+}
+
+.dropdown .options .option a:not(.nohover):hover {
+    background: #6C7DFF;
+    color: #fff
+}
+.dropdownOptions a:not(.nohover):hover {
+    background: #eee;
+    color: #3a3939
+}
+
+.themeDark .dropdownOptions a:not(.nohover):hover {
+    background: 0 0;
+    color: #fba342
+}
+
+.dropdownOptions a:not(.nohover):hover.textDanger {
+    background: #e92424;
+    color: #fff
+}
+
+.dropdownOptions a:not(.nohover):hover.textDrimary {
+    background: #fba342;
+    color: #fff
+}
+
+.dropdown-options a:not(.nohover):hover.text-success {
+    background: #68b641;
+    color: #fff
+}
+
+.dropdown-options a.nohover {
+    color: #3a3939
+}
+
+.theme-dark .dropdown-options a.nohover {
+    background: 0 0;
+    color: #eee
+}
+
+.dropdown .options .option a i {
+    margin-right: 16px
+}
+
+.dropdown .options .option a i.arrow {
+    float: right;
+    position: relative;
+    top: 2px
+}
+
+.dropdown .options .menu .profile {
+    background: #fcfcfc;
+    color: #3a3939;
+    height: 120px;
+    margin-bottom: 8px;
+    position: relative
+}
+
+.themeDark .dropdown .options .menu .profile {
+    background: #010d15;
+    color: #fff
+}
+
+.theme-dark .tradeviewpage2 .dropdown .options .menu .profile {
+    background: #000
+}
+
+.dropdown .options .menu .profile.org {
+    color: #fff
+}
+
+.dropdown .options .menu .profile .icon {
+    border: 2px solid #fff;
+    left: 16px;
+    position: absolute;
+    top: 24px
+}
+
+.dropdown .options .menu .profile .name {
+    overflow: hidden;
+    padding: 28px 24px 0 104px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.dropdown .options .menu .profile .email {
+    font-size: 12px;
+    overflow: hidden;
+    padding: 5px 24px 0 104px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.dropdown .options .menu .profile .btn {
+    /*composes: btn from '../styles/styles.css';*/
+    display: inline-block;
+    font-size: 10px;
+    margin: 8px 24px 0 104px;
+    padding: 5px 10px
+}
+
+.dropdown .options .menu .profile .btn.primary {
+    color: #fff
+}
+
+.dropdown .options .accounts .option {
+    border-top: 1px solid #eee
+}
+
+.themeDark .dropdown .options .accounts .option {
+    border-top: 1px solid #40494f
+}
+
+.dropdown .options .accounts .option.manage a {
+    color: #128ede;
+    text-align: center
+}
+
+.dropdown .options .accounts .option.manage a:hover {
+    color: #fff
+}
+
+.dropdown .options .accounts .back {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 24px
+}
+
+.dropdown .options .accounts .back i {
+    margin-right: 8px
+}
+
+.dropdown .options .accounts .account {
+    height: 88px;
+    position: relative
+}
+
+.dropdown .options .accounts .account .icon {
+    border: 2px solid #fff;
+    box-shadow: 0 4px 12px 0 rgba(35, 35, 35, .16);
+    left: 24px;
+    position: absolute;
+    top: 16px
+}
+
+.dropdown .options .accounts .account .name {
+    overflow: hidden;
+    padding: 10px 48px 0 78px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.dropdown .options .accounts .account .name2 {
+    color: #959595;
+    font-size: 12px;
+    padding: 4px 48px 0 78px
+}
+
+.dropdown .options .accounts .account a {
+    height: 88px
+}
+
+.dropdown .options .accounts .account a:hover .name2, .dropdown .options .accounts .account a:hover .name {
+    color: #fff
+}
+
+.dropdown.open .options {
+    display: block;
+    padding-bottom: 8px
+}
+
+.dropdown.open .selected {
+    border-bottom: 2px solid #fba342
+}
+.avatar {
+    background-size: cover;
+    display: inline-block;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle
+}
+
+
+.optionsWrap {
+    display: flex
+}
+
+.optionsWrap > div {
+    min-width: 360px;
+    position: relative;
+    z-index: 1
+}
+
+@media screen and (max-width: 360px) {
+    .optionsWrap > div {
+        min-width: 100vw
+    }
+}
+
+.switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    vertical-align: middle;
+    width: 40px
+}
+
+.switch .slider {
+    background-color: #eee;
+    border-radius: 14px;
+    cursor: pointer;
+    height: 14px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    transition: .4s;
+    width: 34px
+}
+
+.themeDark .switch .slider {
+    background-color: #cecdcd
+}
+
+.switch .slider:before {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    content: "";
+    height: 20px;
+    left: -5px;
+    position: absolute;
+    top: -3px;
+    transition: .2s;
+    width: 20px
+}
+
+.theme-dark .switch .slider:before {
+    background-color: #959595
+}
+
+.switch input {
+    display: none
+}
+
+.switch input:checked + .slider {
+    background-color: rgba(143, 20, 255, .5)
+}
+
+.switch input:focus + .slider {
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16)
+}
+
+.switch input:checked + .slider:before {
+    background-color: #8f14ff;
+    transform: translateX(24px)
+}
+
+.switch input:checked + .slider.partly:before {
+    background-color: #fff;
+    border: 2px solid #fba342
+}
+
+.themeDark .switch input:checked + .slider.partly:before {
+    background-color: #959595
+}
+
+.switch.disabled {
+    cursor: not-allowed
+}
+
+.switch.disabled input + .slider {
+    background-color: #eee !important;
+    cursor: not-allowed
+}
+
+.switch.disabled input:checked + .slider {
+    background-color: rgba(77, 222, 255, 255) !important;
+    cursor: not-allowed
+}
+
+.switch.disabled input:checked + .slider:before {
+    background-color: #fee8d0 !important
+}
+
+.switch.disabled .slider.partly:before {
+    background-color: hsla(0, 0%, 100%, .5) !important;
+    border-color: hsla(0, 1%, 81%, .5) !important
+}
