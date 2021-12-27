@@ -30,7 +30,10 @@ const Dropdown = () => {
       <div className={s.options}>
         <div className={s.optionsWrap}>
           <div className={s.menu}>
-            <div className={classnames(s.option, s.profile, s.undefined)}>
+            <div
+              className={classnames(s.option, s.profile, s.undefined)}
+              onClick={onClickHandler}
+            >
               <div
                 className={classnames(s.avatar, s.icon)}
                 style={{

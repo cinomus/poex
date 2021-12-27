@@ -30,30 +30,16 @@ const MainTopMenu: FC = () => {
           mobileMenuOpen ? classnames(s.mobileMenu, s.open) : s.mobileMenu
         }
       >
-        <div
-          data-v-1daabd86=""
-          onClick={mobileMenuNnClickHandler}
-          className={s.selected}
-        >
-          <i data-v-1daabd86="" className="fa fa-bars icon" /> Меню
+        <div onClick={mobileMenuNnClickHandler} className={s.selected}>
+          <i className="fa fa-bars icon" /> Меню
         </div>
-        <div data-v-1daabd86="" className={s.options}>
-          <a
-            data-v-1daabd86=""
-            href="https://www.nicehash.com/my/dashboard"
-            className=""
-          >
+        <div className={s.options}>
+          <a href="https://www.nicehash.com/my/dashboard" className="">
             Кабинет
           </a>
-          <a
-            data-v-1daabd86=""
-            href="https://www.nicehash.com/my/wallets/"
-            className={s.wallets}
-          >
-            <i data-v-1daabd86="" className="icon-wallet" /> Кошельки
-            <span data-v-1daabd86="" className={s.amount}>
-              ≈ 0.00000000 BTC
-            </span>
+          <a href="https://www.nicehash.com/my/wallets/" className={s.wallets}>
+            <i className="icon-wallet" /> Кошельки
+            <span className={s.amount}>≈ 0.00000000 BTC</span>
           </a>
         </div>
       </div>
