@@ -413,8 +413,8 @@ ul.menuLeft .moredown .selected .arrow {
 }
 
 ul.menuLeft .moredown .selected.routerLinkActive {
-    border-bottom: 2px solid #fba342;
-    color: #fba342
+    border-bottom: 2px solid #4ddeff;
+    color: #4ddeff
 }
 
 ul.menuLeft .moredown:hover .selected {
@@ -423,7 +423,7 @@ ul.menuLeft .moredown:hover .selected {
 }
 
 ul.menuLeft .moredown.selected {
-    border-bottom: 2px solid #fba342
+    border-bottom: 2px solid #4ddeff
 }
 
 ul.menuLeft .moredown .options {
@@ -478,7 +478,7 @@ ul.menuLeft .moredown .options a:hover:not(.selected) {
 
 .themeDark ul.menuLeft .moredown .options a:hover {
     background: 0 0;
-    color: #fba342
+    color: #4ddeff
 }
 
 .themeDark ul.menuLeft .moredown .options a:hover:not(.selected) {
@@ -486,7 +486,7 @@ ul.menuLeft .moredown .options a:hover:not(.selected) {
 }
 
 ul.menuLeft .moredown.open .selected {
-    color: #fba342
+    color: #4ddeff
 }
 
 ul.menuLeft .moredown.open .options {

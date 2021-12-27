@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from '../../../styles/dropdownStyle.module.css';
 import classnames from 'classnames';
 
 const Dropdown = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  function onClickHandler() {
+    setDropdownOpen(!dropdownOpen);
+  }
+
   return (
-    <div className={classnames(s.dropdown, s.open)}>
+    <div
+      className={dropdownOpen ? classnames(s.dropdown, s.open) : s.dropdown}
+      onClick={onClickHandler}
+    >
       <div className={s.selected}>
         <div
           className={classnames(s.avatar, s.icon)}

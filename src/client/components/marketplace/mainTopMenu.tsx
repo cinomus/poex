@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import s from '../../styles/mainTopMenu.module.css';
 import Dropdown from '../shared/components/dropdown';
+import classnames from 'classnames';
 
 const MainTopMenu: FC = () => {
   return (
@@ -12,13 +13,13 @@ const MainTopMenu: FC = () => {
             Кабинет
           </a>
         </li>
-        <li className="wallets top">
-          <a data-v-cfce1b08="" href="/my/wallets/" className="">
+        <li>
+          <a href="/my/wallets/" className="">
             Кошельки
           </a>
         </li>
       </ul>
-      <div data-v-1daabd86="" className={s.mobileMenu}>
+      <div className={classnames(s.mobileMenu, s.open)}>
         <div data-v-1daabd86="" className={s.selected}>
           <i data-v-1daabd86="" className="fa fa-bars icon" /> Меню
         </div>
@@ -42,17 +43,10 @@ const MainTopMenu: FC = () => {
           </a>
         </div>
       </div>
-      <div data-v-1daabd86="" className={s.menuRight}>
-        <a
-          data-v-1daabd86=""
-          href="https://www.nicehash.com/my/wallets/"
-          className={s.wallets}
-        >
-          <i data-v-1daabd86="" className="fas fa-wallet" />
-          <span data-v-1daabd86="" className={s.value}>
-            {' '}
-            ≈ 0.00000000 BTC
-          </span>
+      <div className={s.menuRight}>
+        <a href="https://www.nicehash.com/my/wallets/" className={s.wallets}>
+          <i className="fas fa-wallet" />
+          <span className={s.value}> ≈ 0.00000000 BTC</span>
         </a>
         <Dropdown />
       </div>
