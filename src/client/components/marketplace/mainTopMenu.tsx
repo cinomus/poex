@@ -1,9 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import s from '../../styles/mainTopMenu.module.css';
 import Dropdown from '../shared/components/dropdown';
 import classnames from 'classnames';
 
 const MainTopMenu: FC = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  function mobileMenuNnClickHandler() {
+    setMobileMenuOpen(!mobileMenuOpen);
+  }
+
   return (
     <div className={s.mainTopMenu}>
       <a href="/" className={s.logo} />
@@ -19,8 +25,16 @@ const MainTopMenu: FC = () => {
           </a>
         </li>
       </ul>
-      <div className={classnames(s.mobileMenu, s.open)}>
-        <div data-v-1daabd86="" className={s.selected}>
+      <div
+        className={
+          mobileMenuOpen ? classnames(s.mobileMenu, s.open) : s.mobileMenu
+        }
+      >
+        <div
+          data-v-1daabd86=""
+          onClick={mobileMenuNnClickHandler}
+          className={s.selected}
+        >
           <i data-v-1daabd86="" className="fa fa-bars icon" /> Меню
         </div>
         <div data-v-1daabd86="" className={s.options}>
