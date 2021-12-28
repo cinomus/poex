@@ -54,8 +54,8 @@ const Selectbox: FC<SelectboxProps> = ({ selectedAlg, selectAlgFunc }) => {
       tabIndex={0}
       className={
         selectboxOpen
-          ? classnames(container4xStyles.selBox, s.selectbox, s.open)
-          : classnames(container4xStyles.selBox, s.selectbox)
+          ? classnames(s.selBox, s.selectbox, s.open)
+          : classnames(s.selBox, s.selectbox)
       }
     >
       <div aria-haspopup="true" className={s.field}>

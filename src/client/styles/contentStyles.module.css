@@ -3,3 +3,72 @@
     padding-bottom: 32px;
     position: relative
 }
+.container4x {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px
+}
+
+@media only screen and (max-width: 1439px) {
+    .container4x {
+        max-width: 1200px
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container4x {
+        max-width: 1440px
+    }
+}
+
+@media (min-width: 2048px) {
+    .container4x {
+        max-width: 2000px
+    }
+}
+
+@media (min-width: 2560px) {
+    .container4x {
+        max-width: 2200px
+    }
+}
+
+@media (min-width: 2800px) {
+    .container4x {
+        max-width: 2800px
+    }
+}
+
+.container4x .colMd3 {
+    flex-basis: 50%;
+    max-width: 50%
+}
+
+@media only screen and (max-width: 991px) {
+    .container4x .colMd3 {
+        flex-basis: 100%;
+        max-width: 100%
+    }
+}
+
+@media (min-width: 2048px) {
+    .container4x .colMd3 {
+        flex-basis: 25%;
+        max-width: 25%
+    }
+}
+
+@media (min-width: 2560px) {
+    .container4x .colMd3 {
+        flex-basis: 25%;
+        max-width: 25%
+    }
+}
+
+@media (min-width: 2800px) {
+    .container4x .colMd3 {
+        flex-basis: 16.6%;
+        max-width: 16.6%
+    }
+}

@@ -4,14 +4,8 @@ import config from 'config';
 const envAwareFetch = (url: string, options?: Record<string, unknown>) => {
   console.log('used envAwareFetch');
   const fetchUrl =
-    isServer && url.startsWith('/')
-      ? `http://localhost:${config.get('PORT')}${url}`
-      : url;
+    isServer && url.startsWith('/') ? `http://localhost:3000${url}` : url;
   return fetch(fetchUrl, options).then((res) => res.json());
-  // const result = await fetch(fetchUrl, options);
-  // console.log('fetch', await result.json());
-  // const js = result.json();
-  // return js;
 };
 
 export { envAwareFetch as fetch };

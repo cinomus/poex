@@ -1,93 +1,5 @@
-.container4x {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px
-}
 
-@media only screen and (max-width: 1439px) {
-    .container4x {
-        max-width: 1200px
-    }
-}
 
-@media only screen and (min-width: 1440px) {
-    .container4x {
-        max-width: 1440px
-    }
-}
-
-@media (min-width: 2048px) {
-    .container4x {
-        max-width: 2000px
-    }
-}
-
-@media (min-width: 2560px) {
-    .container4x {
-        max-width: 2200px
-    }
-}
-
-@media (min-width: 2800px) {
-    .container4x {
-        max-width: 2800px
-    }
-}
-
-.container4x .colMd3 {
-    flex-basis: 50%;
-    max-width: 50%
-}
-
-@media only screen and (max-width: 991px) {
-    .container4x .colMd3 {
-        flex-basis: 100%;
-        max-width: 100%
-    }
-}
-
-@media (min-width: 2048px) {
-    .container4x .colMd3 {
-        flex-basis: 25%;
-        max-width: 25%
-    }
-}
-
-@media (min-width: 2560px) {
-    .container4x .colMd3 {
-        flex-basis: 25%;
-        max-width: 25%
-    }
-}
-
-@media (min-width: 2800px) {
-    .container4x .colMd3 {
-        flex-basis: 16.6%;
-        max-width: 16.6%
-    }
-}
-
-.selBox {
-    display: inline-block;
-    margin-left: 10px;
-    margin-top: -6px;
-    min-width: 200px;
-    vertical-align: middle
-}
-
-@media only screen and (max-width: 991px) {
-    .selBox {
-        display: block;
-        margin: 8px 0;
-        width: 100%
-    }
-
-    .hideCharts {
-        display: block;
-        margin: 8px
-    }
-}
 
 .mobileMarketSelector {
     border-bottom: 2px solid #eee;
@@ -141,46 +53,6 @@
     color: #fba342
 }
 
-@media only screen and (max-width: 991px) {
-    .header {
-        margin-top: 16px
-    }
-
-    .header h3 {
-        margin-bottom: 8px
-    }
-}
-
-.header .checkboxes {
-    float: right;
-    margin-top: 8px
-}
-
-@media only screen and (max-width: 991px) {
-    .header .checkboxes {
-        float: none;
-        margin-top: 24px
-    }
-
-    .header .checkboxes .checkbox {
-        display: inline-block
-    }
-}
-
-.market {
-    margin-bottom: 40px;
-    transition: flex-basis .1s ease, max-width .1s ease
-}
-
-@media only screen and (max-width: 991px) {
-    .market:first-child {
-        padding-right: 16px
-    }
-
-    .market:last-child {
-        padding-left: 16px
-    }
-}
 
 .ordersFilter {
     margin: 12px 16px
@@ -194,3 +66,4 @@
     cursor: pointer;
     display: inline-block
 }
+

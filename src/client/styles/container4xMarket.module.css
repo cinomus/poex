@@ -1,0 +1,440 @@
+.colMd3 {
+    flex-basis: 50%;
+    max-width: 50%
+}
+
+@media only screen and (max-width: 991px) {
+    .colMd3 {
+        flex-basis: 100%;
+        max-width: 100%
+    }
+}
+
+@media (min-width: 2048px) {
+    .colMd3 {
+        flex-basis: 25%;
+        max-width: 25%
+    }
+}
+
+@media (min-width: 2560px) {
+    .colMd3 {
+        flex-basis: 25%;
+        max-width: 25%
+    }
+}
+
+@media (min-width: 2800px) {
+    .colMd3 {
+        flex-basis: 16.6%;
+        max-width: 16.6%
+    }
+}
+.market {
+    margin-bottom: 40px;
+    transition: flex-basis .1s ease, max-width .1s ease
+}
+
+@media only screen and (max-width: 991px) {
+    .market:first-child {
+        padding-right: 16px
+    }
+
+    .market:last-child {
+        padding-left: 16px
+    }
+}
+.marketHeader[data-v-518f13f8] {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(35, 35, 35, .16);
+    justify-content: space-between;
+    padding: 24px 18px;
+    position: relative;
+    transition: background .2s ease
+}
+
+.themeDark .marketHeader[data-v-518f13f8] {
+    background: #031a2a;
+    border: 1px solid #40494f
+}
+
+.marketHeader .marketMove[data-v-518f13f8] {
+    cursor: move
+}
+
+.marketHeader .collapse[data-v-518f13f8] {
+    background-size: cover;
+    cursor: pointer;
+    display: none;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: 37px;
+    width: 20px
+}
+
+.marketHeader .collapse.on[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/collapse-on.svg)
+}
+
+.marketHeader .collapse.off[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/collapse-on.svg)
+}
+
+.marketHeader:hover .collapse[data-v-518f13f8] {
+    display: block
+}
+
+.marketHeader .headerLabel[data-v-518f13f8] {
+    color: #959595;
+    font-size: 12px;
+    padding-bottom: 4px
+}
+
+.marketHeader .marketLabel[data-v-518f13f8] {
+    color: #959595;
+    font-size: 12px;
+    left: 74px;
+    position: absolute
+}
+
+.marketHeader .marketName[data-v-518f13f8] {
+    position: relative;
+    top: 12px;
+    white-space: nowrap
+}
+
+.marketHeader .headerValue[data-v-518f13f8] {
+    color: #3a3939;
+    font-weight: 700;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.theme-dark .marketHeader .headerValue[data-v-518f13f8] {
+    color: #eee
+}
+
+.marketHeader .headerValue .icon[data-v-518f13f8] {
+    background-size: cover;
+    border-radius: 40px;
+    display: inline-block;
+    height: 40px;
+    margin-right: 12px;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+    width: 40px
+}
+
+.marketHeader .headerValue .icon.EU[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/eu-west.png)
+}
+
+.marketHeader .headerValue .icon.USA_E[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/usa-east.png)
+}
+
+.marketHeader .headerValue .icon.EU_N[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/eu-north.png)
+}
+
+.marketHeader .headerValue .icon.USA[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/usa-west.png)
+}
+
+.marketHeader .headerValue .icon.SA[data-v-518f13f8] {
+    /*background-image: url(../my/media/03d43766579e499a2a7c.png)*/
+}
+
+.marketHeader .headerValue .icon.ASIA[data-v-518f13f8] {
+    /*background-image: url(../my/media/637d9798e8866d0fbb5a.png)*/
+}
+
+.marketHeader .headerValue .icon .iconSmall[data-v-518f13f8] {
+    background-size: cover;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    bottom: -2px;
+    display: inline-block;
+    height: 20px;
+    position: absolute;
+    right: -4px;
+    vertical-align: middle;
+    width: 20px
+}
+
+.themeDark .marketHeader .headerValue .icon .iconSmall[data-v-518f13f8] {
+    border: 1px solid #131f26
+}
+
+.marketHeader .headerValue .icon .iconSmall.EU[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/eu-west.png)
+}
+
+.marketHeader .headerValue .icon .iconSmall.USA[data-v-518f13f8] {
+    background-image: url(../../../public/images/shared/usa-west.png)
+}
+
+.marketHeader .headerValue .icon .iconSmall.SA[data-v-518f13f8] {
+    /*background-image: url(../my/media/d13674f6c56ca31c38c4.png)*/
+}
+
+.marketHeader .headerValue .icon .iconSmall.ASIA[data-v-518f13f8] {
+    /*background-image: url(../my/media/d17437ab9e412b31d759.png)*/
+}
+
+.marketHeader.isMobile[data-v-518f13f8] {
+    background: 0 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0
+}
+
+.marketHeader.isMobile .col-micro-6[data-v-518f13f8]:first-child {
+    display: none
+}
+
+.marketHeader.isMobile .col-micro-6[data-v-518f13f8] {
+    text-align: left
+}
+
+.marketOrders[data-v-518f13f8] {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px 0 rgba(35, 35, 35, .16);
+    margin-top: 16px;
+    overflow: hidden
+}
+
+.themeDark .marketOrders[data-v-518f13f8] {
+    background: #031a2a;
+    border: 1px solid #40494f
+}
+
+.marketOrders .badge[data-v-518f13f8] {
+    align-items: center;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 24px;
+    justify-content: center;
+    line-height: 24px;
+    margin-right: 8px;
+    text-align: center;
+    width: 24px
+}
+
+.marketOrders .roundButton[data-v-518f13f8] {
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    cursor: pointer;
+    margin-left: 4px;
+    margin-right: 0;
+    margin-top: 4px;
+    transition: box-shadow .2s ease
+}
+
+.themeDark .marketOrders .roundButton[data-v-518f13f8] {
+    background: #031a2a;
+    border: 1px solid #40494f
+}
+
+.marketOrders .roundButton[data-v-518f13f8]:hover {
+    box-shadow: 0 4px 12px 0 rgba(35, 35, 35, .16)
+}
+
+.marketOrders .roundButton.outbid[data-v-518f13f8] {
+    left: -34px;
+    margin-right: 2px;
+    position: absolute;
+    top: -9px;
+    vertical-align: middle;
+    visibility: hidden;
+    width: 24px
+}
+
+.marketOrders .table.deselected[data-v-518f13f8] tbody, .marketOrders .table.deselected[data-v-518f13f8] td, .marketOrders .table.deselected[data-v-518f13f8] th, .marketOrders .table.deselected[data-v-518f13f8] thead, .marketOrders .table.deselected[data-v-518f13f8] tr {
+    background: 0 0
+}
+
+.marketOrders .table[data-v-518f13f8] .selectedRow {
+    background: #fee8d0
+}
+
+.themeDark .marketOrders .table[data-v-518f13f8] .detailsRow, .themeDark .marketOrders .table[data-v-518f13f8] .selectedRow {
+    background: rgba(251, 163, 66, .1)
+}
+
+.marketOrders .table[data-v-518f13f8] .deadRow {
+    background: #fce9e9
+}
+
+.theme-dark .marketOrders .table[data-v-518f13f8] .dead-row {
+    background: rgba(233, 36, 36, .25)
+}
+
+.marketOrders .table[data-v-518f13f8] tr:not(.selectedRow,.fixed):hover .outbid {
+    margin-right: 2px;
+    visibility: visible;
+    width: 24px
+}
+
+.marketOrders .table[data-v-518f13f8] td, .marketOrders .table[data-v-518f13f8] th {
+    padding-left: 4px;
+    padding-right: 4px
+}
+
+.marketOrders .table[data-v-518f13f8] td:first-child, .marketOrders .table[data-v-518f13f8] th:first-child {
+    padding-left: 16px
+}
+
+.marketOrders .table[data-v-518f13f8] td:last-child, .marketOrders .table[data-v-518f13f8] th:last-child {
+    padding-right: 16px
+}
+
+.details .chartSection[data-v-518f13f8] {
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px 0 rgba(35, 35, 35, .16);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle
+}
+
+.themDark .details .chartSection[data-v-518f13f8] {
+    background: 0 0;
+    border: 1px solid #40494f
+}
+
+.details .chartSection .chart[data-v-518f13f8] {
+    height: 150px;
+    margin-left: 16px;
+    width: 258px
+}
+
+@media only screen and (max-width: 479px) {
+    .details .chartSection .chart[data-v-518f13f8] {
+        width: 150px
+    }
+}
+
+.details .chartSection .chartInfo[data-v-518f13f8] {
+    flex: 1;
+    margin-bottom: 16px;
+    margin-left: 24px;
+    margin-right: 24px
+}
+
+.details .chartSection .chartInfo .progressText[data-v-518f13f8] {
+    color: #68b641;
+    font-weight: 700;
+    margin-bottom: 4px;
+    margin-top: 16px
+}
+
+.details .chartSection .chartInfo .progressText .percent[data-v-518f13f8] {
+    float: right
+}
+
+.details .buttonsSection[data-v-518f13f8] {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left: -8px;
+    margin-right: -8px
+}
+
+.details .buttonsSection[data-v-518f13f8] .btn {
+    margin: 0 8px;
+    padding-left: 16px;
+    padding-right: 16px
+}
+
+.themeDark .details .buttonsSection .btn.outline[data-v-518f13f8] {
+    background: #052339
+}
+
+.market_not_open_yet[data-v-518f13f8] {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .85), hsla(0, 0%, 96%, .95));
+    height: 100%;
+    padding: 40px;
+    position: absolute;
+    width: 100%;
+    z-index: 1
+}
+.tableContainer {
+    min-height: 90px;
+    overflow-x: auto;
+    position: relative
+}
+.badge[data-v-f61360be] {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    font-size: 0;
+    font-weight: 700;
+    height: 16px;
+    justify-content: center;
+    margin-right: 8px;
+    width: 16px
+}
+
+.orderType.FIXEDType[data-v-f61360be] {
+    color: #fff
+}
+
+.orderType.FIXEDType[data-v-f61360be], .orderType.STANDARDType[data-v-f61360be] {
+    background: #4ddeff;
+    border: 1px solid #4ddeff
+}
+
+.orderType.COMPLETEDType[data-v-f61360be] {
+    background: #3a3939;
+    border: 1px solid #3a3939
+}
+
+.orderType.CANCELLEDType[data-v-f61360be] {
+    background: #959595;
+    border: 1px solid #959595
+}
+
+.orderType.DEADType[data-v-f61360be] {
+    background: #e92424;
+    border: 1px solid #e92424
+}
+
+.orderType.ACTIVEDEADType[data-v-f61360be] {
+    background: #fba342;
+    border: 1px solid #fba342
+}
+
+.FIXEDType[data-v-76b8bfca], .STANDARDType[data-v-76b8bfca] {
+    color: #68b641
+}
+
+.COMPLETEDType[data-v-76b8bfca] {
+    color: #3a3939
+}
+
+.themeDark .COMPLETEDType[data-v-76b8bfca] {
+    color: #eee
+}
+
+.CANCELLEDType[data-v-76b8bfca] {
+    color: #959595
+}
+
+.DEADType[data-v-76b8bfca] {
+    color: #e92424
+}
+
+.NOTACTIVEType[data-v-76b8bfca] {
+    color: #fba342
+}

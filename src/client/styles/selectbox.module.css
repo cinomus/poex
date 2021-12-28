@@ -243,3 +243,18 @@ div.selectbox.small .field {
 div.selectbox.small .arrows {
     top: 4px
 }
+.selBox {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: -6px;
+    min-width: 200px;
+    vertical-align: middle
+}
+
+@media only screen and (max-width: 991px) {
+    .selBox {
+        display: block;
+        margin: 8px 0;
+        width: 100%
+    }
+}

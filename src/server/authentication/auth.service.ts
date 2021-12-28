@@ -163,14 +163,13 @@ export class AuthService {
       userDto.password,
       user.password,
     );
-    console.log(user, userDto, passwordEquals);
     if (user && passwordEquals) {
       const doc = JSON.parse(JSON.stringify(user));
       const { password, ...result } = doc;
       return result;
     }
     throw new UnauthorizedException({
-      message: 'Некорректный емайл или пароль',
+      message: 'Некорректный email или пароль',
     });
   }
 
