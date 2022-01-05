@@ -11,14 +11,18 @@ import InputBox from './inputBox';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import ErrorBox from '../shared/components/errorBox';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useAction';
+import { useCookies } from 'react-cookie';
 
 const LoginBox: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [showError, setShowError] = useState<boolean>(false);
   const [errorValue, setErrorValue] = useState<string>('');
-
+  const [cookies, setCookies] = useCookies(['authentication', 'refresh']);
   const router = useRouter();
+  const { setUser } = useActions();
 
   async function onSubmit(e) {
     console.log('submit', e);
@@ -31,14 +35,26 @@ const LoginBox: FC = () => {
 
     try {
       const res = await axios.post('http://localhost:3000/auth/login', body);
-      console.log(res);
       if (res.status === 201) {
+        console.log(res.data);
+        setUser(res.data.user);
+        if (!cookies.authentication) {
+          setCookies('authentication', res.data.accessToken, {
+            path: '/',
+            maxAge: 60 * 60 * 1000,
+          });
+          setCookies('refresh', res.data.refreshToken, {
+            path: '/',
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+          });
+        }
         await router.push('/');
         console.log('Отправлен запрос');
       } else {
         throw new Error();
       }
     } catch (error) {
+      console.log(error);
       if (error.response.status === 401) {
         console.log(error.response.data);
         setShowError(true);

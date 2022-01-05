@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import s from '../../styles/moreButton.module.css';
+import classnames from 'classnames';
 
 interface buttonProps {
   buttonState: boolean;
@@ -10,18 +12,18 @@ const MoreButton: FC<buttonProps> = ({ buttonState, onClickHandler }) => {
     <button
       data-v-2839e574=""
       type="button"
-      className="more is-www"
+      className={classnames(s.more, s.isWww)}
       onClick={onClickHandler}
     >
-      <span data-v-2839e574="" className="text">
+      <span data-v-2839e574="" className={s.text}>
         {buttonState ? 'ЗАКРЫТЬ' : 'БОЛЬШЕ'}
       </span>
       {buttonState ? (
-        <span data-v-2839e574="" className="close">
+        <span data-v-2839e574="" className={s.close}>
           ×
         </span>
       ) : (
-        <span data-v-2839e574="" className="bars">
+        <span data-v-2839e574="" className={s.bars}>
           <div data-v-2839e574="" />
           <div data-v-2839e574="" />
           <div data-v-2839e574="" />

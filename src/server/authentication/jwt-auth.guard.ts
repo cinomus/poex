@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { JwtService } from '@nestjs/jwt';
-import * as config from 'config';
+import config from 'config';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
@@ -27,6 +27,7 @@ export class JwtAuthGuard implements CanActivate {
       const refreshToken = this.jwtService.verify(cookies.refresh, {
         secret: config.get('JWT_REFRESH_TOKEN_SECRET'),
       });
+      console.log(accessToken, refreshToken);
       return true;
     } catch (e) {
       console.log(e);

@@ -5,7 +5,7 @@ import Container4xHeader from '../../marketplace/container4xHeader';
 import Container4XMarket from '../../marketplace/container4xMarket';
 import { fetch } from '../../../../shared/utils/fetch';
 import { IOrder, IStats } from '../../../../shared/types/types';
-import { timeout } from 'rxjs';
+import { useCookies } from 'react-cookie';
 
 interface ContentProps {
   orders?: IOrder[];
@@ -21,6 +21,7 @@ interface IMarketData {
 const Content: FC<ContentProps> = ({ children }) => {
   const [selectedAlg, setSelectedAlg] = useState('Scrypt');
   const [marketData, setMarketData] = useState<IMarketData>(null);
+  const [cookies, setCookies] = useCookies(['authentication']);
 
   function getMarketDataKeys(data: IMarketData): string[] {
     return data ? Object.keys(data) : [];
@@ -51,7 +52,7 @@ const Content: FC<ContentProps> = ({ children }) => {
       {children}
       <div data-v-3a5fbf82="" data-v-469ec6d3="">
         <div data-v-3a5fbf82="" className="container">
-          <Header />
+          {cookies.authentication ? <Header /> : ''}
         </div>
         <div data-v-1e611a18="" data-v-3a5fbf82="">
           <div className={s.container4x}>

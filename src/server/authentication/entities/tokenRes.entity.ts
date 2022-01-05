@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserResp } from '../../models/users/serializers/user.serializer';
 
 export class TokenRes {
+  user: UserResp;
   @ApiProperty({
     example: 'ksdfuhiun1vidsm9v012-2ifm9e8n912mcm1289m89v9',
     description: 'Access token',

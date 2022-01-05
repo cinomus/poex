@@ -28,6 +28,8 @@ export class User {
   @Prop()
   banReason: string;
   @Prop()
+  accessToken: string;
+  @Prop()
   oldestAccessTokens: string[];
   @Prop()
   refreshToken: string;

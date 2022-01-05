@@ -37,11 +37,15 @@ export class UsersService {
     return createdUser.save();
   }
 
-  async setCurrentRefreshToken(refreshToken: string, username: string) {
-    // const currentHashedRefreshToken = await bcrypt.hash(refreshToken, 10); todo: мб надо это брать вообще???
+  async setCurrentTokens(
+    refreshToken: string,
+    accessToken: string,
+    email: string,
+  ) {
     await this.userModel.findOneAndUpdate(
-      { username: username },
+      { email: email },
       {
+        accessToken: accessToken,
         refreshToken: refreshToken,
       },
     );
@@ -57,22 +61,20 @@ export class UsersService {
   }
 
   async findByRefreshToken(refreshToken: string): Promise<User> {
-    console.log('refres', refreshToken);
     return this.userModel.findOne({ refreshToken: refreshToken });
   }
 
-  async getUserByUsername(email: string): Promise<User | undefined> {
+  async getUserByEmail(email: string): Promise<User | undefined> {
     const user = await this.userModel
       .findOne({ email: email })
       .populate('roles');
-    // if (!user) {
-    //   throw new HttpException(
-    //     {
-    //       message: `Пользователь с ${email} не найден.`,
-    //     },
-    //     HttpStatus.BAD_REQUEST,
-    //   );
-    // }
+    return user;
+  }
+
+  async getUserByAccessToken(token: string): Promise<User | undefined> {
+    const user = await this.userModel
+      .findOne({ accessToken: token })
+      .populate('roles');
     return user;
   }
 

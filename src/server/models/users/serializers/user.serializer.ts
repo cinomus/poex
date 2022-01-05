@@ -34,6 +34,8 @@ export class UserResp {
   @Exclude()
   refreshToken: string;
   @Exclude()
+  accessToken: string;
+  @Exclude()
   oldestAccessTokens: string[];
 
   constructor(partial: Partial<UserResp>) {

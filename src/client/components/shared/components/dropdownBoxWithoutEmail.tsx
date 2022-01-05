@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
 import s from '../../../styles/dropdownStyle.module.css';
 import classnames from 'classnames';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import axios from 'axios';
+import { useActions } from '../../../hooks/useAction';
+import { useRouter } from 'next/router';
 
-const Dropdown = () => {
+const DropdownBoxWithoutEmail = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { email } = useTypedSelector((state) => state.user);
+  const { unsetUser } = useActions();
+  const router = useRouter();
 
-  function onClickHandler() {
+  function dropdownOnClickHandler() {
     setDropdownOpen(!dropdownOpen);
+  }
+
+  async function logout() {
+    await axios.post('http://localhost:3000/auth/logout');
+    unsetUser();
+    await router.push('/');
   }
 
   return (
     <div className={dropdownOpen ? classnames(s.dropdown, s.open) : s.dropdown}>
-      <div className={s.selected} onClick={onClickHandler}>
+      <div className={s.selected} onClick={dropdownOnClickHandler}>
         <div
           className={classnames(s.avatar, s.icon)}
           style={{
@@ -24,7 +37,7 @@ const Dropdown = () => {
             backgroundColor: 'rgb(251, 163, 66)',
           }}
         >
-          R
+          {email ? email[0].toUpperCase() : ''}
         </div>
       </div>
       <div className={s.options}>
@@ -32,7 +45,7 @@ const Dropdown = () => {
           <div className={s.menu}>
             <div
               className={classnames(s.option, s.profile, s.undefined)}
-              onClick={onClickHandler}
+              onClick={dropdownOnClickHandler}
             >
               <div
                 className={classnames(s.avatar, s.icon)}
@@ -46,10 +59,10 @@ const Dropdown = () => {
                   backgroundColor: 'rgb(251, 163, 66)',
                 }}
               >
-                R
+                {email ? email[0].toUpperCase() : ''}
               </div>
               <div className={s.name} />
-              <div className={s.email}>redsog@mail.ru</div>
+              <div className={s.email}>{email}</div>
               <a
                 href="https://www.nicehash.com/my/settings/"
                 className={classnames(s.btn, s.primary, 'btn primary small')}
@@ -73,7 +86,7 @@ const Dropdown = () => {
               </a>
             </div>
             <div className={s.option}>
-              <a className="pointer">
+              <a className="pointer" onClick={logout}>
                 <i className="fa fa-sign-out-alt" /> Выйти
               </a>
             </div>
@@ -84,4 +97,4 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+export default DropdownBoxWithoutEmail;

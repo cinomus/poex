@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Render,
+  Req,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -17,9 +18,10 @@ import { BanUserDto } from './dto/ban-user.dto';
 import { AddRoleDto } from './dto/add-role.dto';
 import { JwtAuthGuard } from '../../authentication/jwt-auth.guard';
 import { toObject } from '../../common/helpers/toTsObject.helper';
+import { Request } from 'express';
 
 @ApiTags('Users')
-// @UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 @Controller('/users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -27,7 +29,6 @@ export class UsersController {
   @ApiOperation({ summary: 'Получение всех пользователей' })
   @ApiResponse({ status: 200, type: [UserResp] })
   @Get()
-  @Render('users')
   async index() {
     console.log('users');
     return {};
@@ -41,7 +42,25 @@ export class UsersController {
     console.log('getAll ----', users);
     return rsp;
   }
-  @ApiOperation({ summary: 'Получение конкретного пользователя по username' })
+
+  // @ApiOperation({ summary: 'Получение конкретного пользователя по username' })
+  // @ApiResponse({ status: 200, type: [UserResp] })
+  // @ApiParam({
+  //   name: 'username',
+  //   type: String,
+  //   description: 'username пользователя',
+  // })
+  // @UseInterceptors(ClassSerializerInterceptor)
+  // @Get(':username')
+  // async getOne(@Param() { username }) {
+  //   console.log('usernames');
+  //   const user = await this.usersService.getUserByUsername(username);
+  //   return new UserResp(await toObject(user));
+  // }
+
+  @ApiOperation({
+    summary: 'Получение конкретного пользователя по access token',
+  })
   @ApiResponse({ status: 200, type: [UserResp] })
   @ApiParam({
     name: 'username',
@@ -49,10 +68,12 @@ export class UsersController {
     description: 'username пользователя',
   })
   @UseInterceptors(ClassSerializerInterceptor)
-  @Get(':username')
-  async getOne(@Param() { username }) {
-    console.log('usernames');
-    const user = await this.usersService.getUserByUsername(username);
+  @Post('/getMe')
+  async getOneByAccessToken(@Req() req: Request) {
+    console.log('users controller get me cookie', req.cookies);
+    const accessToken = req.cookies.authentication;
+    const user = await this.usersService.getUserByAccessToken(accessToken);
+    console.log('users controller get me user', user);
     return new UserResp(await toObject(user));
   }
 

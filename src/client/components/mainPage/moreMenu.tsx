@@ -1,44 +1,50 @@
+import Link from 'next/link';
 import React from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const MoreMenu = () => {
+  const { email } = useTypedSelector((state) => state.user);
+
   return (
     <div data-v-2839e574="" className="more-menu">
       <div data-v-2839e574="" className="container">
-        <div
-          data-v-2839e574=""
-          className="visible-md-down-block text-center get-started"
-        >
-          <a
+        {!email ? (
+          <div
             data-v-2839e574=""
-            href="https://www.nicehash.com/my/login"
-            className="btn secondary normal"
+            className="visible-md-down-block text-center get-started"
           >
-            ВОЙТИ
-          </a>
-          <a
-            data-v-2839e574=""
-            href="https://www.nicehash.com/my/register"
-            className="btn primary normal"
-          >
-            Регистрация
-          </a>
-        </div>
+            <Link href="/auth/login">
+              <a data-v-2839e574="" className="btn secondary normal">
+                ВОЙТИ
+              </a>
+            </Link>
+            <Link href="/auth/register">
+              <a data-v-2839e574="" className="btn primary normal">
+                Регистрация
+              </a>
+            </Link>
+          </div>
+        ) : (
+          ''
+        )}
+
         <div data-v-2839e574="" className="row">
           <div data-v-2839e574="" className="col-sm-3">
             <div data-v-2839e574="" className="section">
               РЫНОК МОЩНОСТИ
             </div>
             <hr data-v-2839e574="" />
-            <a
-              data-v-2839e574=""
-              href="/marketplace"
-              className="router-link-active"
-            >
-              Онлайн-рынок
-            </a>{' '}
-            <a data-v-2839e574="" href="/pricing" className="">
-              Цены
-            </a>
+            <Link href="/marketplace">
+              <a data-v-2839e574="" className="router-link-active">
+                Онлайн-рынок
+              </a>
+            </Link>
+            <Link href="/pricing">
+              <a data-v-2839e574="" className="">
+                Цены
+              </a>
+            </Link>
+
             {/*<a data-v-2839e574="" href="/compatible-pools" className="">*/}
             {/*  Совместимые пулы*/}
             {/*</a>*/}

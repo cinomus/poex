@@ -10,7 +10,6 @@ import { JwtService } from '@nestjs/jwt';
 import { CreateUserDto } from '../models/users/dto/create-user.dto';
 import config from 'config';
 import { ResCookieDto } from './dto/res-cookie.dto';
-import { log } from 'util';
 
 @Injectable()
 export class AuthService {
@@ -25,7 +24,7 @@ export class AuthService {
     // сохранить в бд если нет и вернуть ошибку если есть
     //
     const hashedPassword = await bcrypt.hash(userDto.password, 10);
-    const candidate = await this.usersService.getUserByUsername(userDto.email);
+    const candidate = await this.usersService.getUserByEmail(userDto.email);
     if (candidate) {
       throw new UnauthorizedException({
         message: 'Пользователь с таким email уже существует.',
@@ -44,12 +43,14 @@ export class AuthService {
       user.email,
     );
 
-    await this.usersService.setCurrentRefreshToken(
+    await this.usersService.setCurrentTokens(
       refreshTokenCookie.token,
+      accessTokenCookie.token,
       user.email,
     );
 
     return {
+      user,
       accessTokenCookie: accessTokenCookie,
       refreshTokenCookie: refreshTokenCookie,
     };
@@ -65,12 +66,14 @@ export class AuthService {
       user.email,
     );
 
-    await this.usersService.setCurrentRefreshToken(
+    await this.usersService.setCurrentTokens(
       refreshTokenCookie.token,
+      accessTokenCookie.token,
       user.email,
     );
 
     return {
+      user,
       accessTokenCookie: accessTokenCookie,
       refreshTokenCookie: refreshTokenCookie,
     };
@@ -82,13 +85,16 @@ export class AuthService {
     }
     const validate = await this.validateToken(refreshToken);
     const user = await this.usersService.findByRefreshToken(refreshToken);
-
-    if (!validate || !user) {
+    console.log(!validate, !user);
+    if (!validate) {
       // если токен не валиден и юзера с таким токеном нет, то выбрасываем ошибку и удаляем токен из бд?
-      if (!validate && user) {
+      if (user) {
+        console.log(
+          'auth.service токен не валиден но юзер с таким токеном есть',
+        );
         await this.usersService.removeRefreshToken(refreshToken);
       }
-
+      console.log('auth.service токен не валиден и нет юзера с таким токеном ');
       throw new UnauthorizedException();
     }
 
@@ -99,12 +105,14 @@ export class AuthService {
       user.email,
     );
 
-    await this.usersService.setCurrentRefreshToken(
+    await this.usersService.setCurrentTokens(
       refreshTokenCookie.token,
+      accessTokenCookie.token,
       user.email,
     );
 
     return {
+      user,
       accessTokenCookie: accessTokenCookie,
       refreshTokenCookie: refreshTokenCookie,
     };
@@ -112,7 +120,7 @@ export class AuthService {
 
   public getCookiesForLogOut() {
     return [
-      'authentication=; HttpOnly; Path=/; Max-Age=0',
+      'authentication=;  Path=/; Max-Age=0',
       'refresh=; HttpOnly; Path=/; Max-Age=0',
     ];
   }
@@ -121,11 +129,12 @@ export class AuthService {
     const payload = { email };
 
     const token = await this.generateToken(payload, 'access');
-    const cookie = `Authentication=${token}; HttpOnly; Path=/; Max-Age=${config.get(
+    const cookie = `Authentication=${token};  Path=/; Max-Age=${config.get(
       'JWT_ACCESS_TOKEN_EXPIRATION_TIME',
     )}`;
     const options = {
-      httpOnly: true,
+      domain: '0f57-109-201-110-81.ngrok.io',
+      httpOnly: false,
       maxAge: 1 * 1 * 60 * 60 * 1000,
       // expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
     };
@@ -138,10 +147,11 @@ export class AuthService {
   private async getCookieWithJwtRefreshToken(email: string) {
     const payload = { email };
     const token = await this.generateToken(payload, 'refresh');
-    const cookie = `Refresh=${token}; HttpOnly; Path=/; Max-Age=${config.get(
+    const cookie = `Refresh=${token}; HttpOnly; Path=/auth; Max-Age=${config.get(
       'JWT_REFRESH_TOKEN_EXPIRATION_TIME',
     )}`;
     const options = {
+      domain: '0f57-109-201-110-81.ngrok.io',
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
       // expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
@@ -153,7 +163,7 @@ export class AuthService {
   }
 
   private async validateUser(userDto: CreateUserDto) {
-    const user = await this.usersService.getUserByUsername(userDto.email);
+    const user = await this.usersService.getUserByEmail(userDto.email);
     if (!user) {
       throw new UnauthorizedException({
         message: 'Некорректный email или пароль.',
@@ -163,11 +173,12 @@ export class AuthService {
       userDto.password,
       user.password,
     );
-    if (user && passwordEquals) {
-      const doc = JSON.parse(JSON.stringify(user));
-      const { password, ...result } = doc;
-      return result;
-    }
+    // if (user && passwordEquals) {
+    //   const doc = JSON.parse(JSON.stringify(user));
+    //   const { password, ...result } = doc;
+    //   return result;
+    // }
+    return user;
     throw new UnauthorizedException({
       message: 'Некорректный email или пароль',
     });

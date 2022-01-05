@@ -1,3 +1,95 @@
+.mainTopMenuUnLog {
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
+    height: 64px;
+    margin-bottom: 32px
+}
+
+.themeDark .mainTopMenuUnLog {
+    background: #052339;
+    border-bottom: 1px solid #40494f;
+    box-shadow: none
+}
+
+@media only screen and (max-width: 767px) {
+    .mainTopMenuUnLog {
+        margin-bottom: 16px
+    }
+}
+
+.mainTopMenuUnLog .logo {
+    background: linear-gradient(90deg, #4ddeff, #4ddeff);
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 71px
+}
+
+/*.themeDark .mainTopMenuUnLog .logo {*/
+/*    background: 0 0;*/
+/*    background-color: #052339;*/
+/*    border-right: 1px solid #40494f*/
+/*}*/
+
+/*.mainTopMenuUnLog .logo:after {*/
+/*    background:url(../../../public/images/shared/poex.png);*/
+/*    content: " ";*/
+/*    display: block;*/
+/*    height: 32px;*/
+/*    left: calc(50% - 16px);*/
+/*    position: absolute;*/
+/*    top: calc(50% - 16px);*/
+/*    width: 32px*/
+/*}*/
+
+/*.themeDark .mainTopMenuUnLog .logo:after {*/
+/*    !*background-image: url(../../../public/images/shared/poex.png);*!*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 32px*/
+/*}*/
+
+.mainTopMenuUnLog div.menuLeft {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 12px 16px
+}
+
+@media only screen and (max-width: 767px) {
+    .mainTopMenuUnLog div.menuLeft {
+        display: none
+    }
+}
+
+.mainTopMenuUnLog div.menuLeft button, .mainTopMenuUnLog div.menuLeft div {
+    display: inline-block
+}
+
+.mainTopMenuUnLog div.menuLeft button {
+    margin-left: 8px
+}
+
+.mainTopMenuUnLog .menuRight {
+    float: right;
+    padding-right: 16px;
+    white-space: nowrap
+}
+
+.mainTopMenuUnLog .menuRight .btn {
+    display: inline-block;
+    margin-left: 8px;
+    margin-top: 12px
+}
+
+@media only screen and (max-width: 479px) {
+    .mainTopMenuUnLog .menuRight .btn {
+        padding-left: 10px;
+        padding-right: 10px
+    }
+}
+
+
+
 .mainTopMenu {
     background: #fff;
     box-shadow: 0 1px 4px 0 rgba(35, 35, 35, .16);
@@ -19,7 +111,7 @@
     }
 }
 
-.mainTopMenu .logo {
+.mainTopMenu .logo, .mainTopMenuUnLog .logo{
     background-size: cover;
     background-position: 0;
     height: 40px;
@@ -146,6 +238,8 @@
 .mainTopMenu .mobileMenu.open .options {
     display: block
 }
+
+
 
 .mainTopMenu .menuRight {
     display: flex;

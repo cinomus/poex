@@ -1,9 +1,18 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { fetch } from 'src/shared/utils/fetch';
 import MoreMenu from '../client/components/mainPage/moreMenu';
 import MoreButton from '../client/components/mainPage/moreButton';
+import { useCookies } from 'react-cookie';
+import NprogressContainer from '../client/components/shared/components/nprogress-container';
+import Notifications from '../client/components/shared/components/notifications';
+import ModalBg from '../client/components/shared/components/modalBg';
+import DropdownBoxWithEmail from '../client/components/shared/components/dropdownWithEmail';
+import { useTypedSelector } from '../client/hooks/useTypedSelector';
+import Navbar from '../client/components/shared/components/navbar';
+import axios from 'axios';
+import { useActions } from '../client/hooks/useAction';
 
 type THomeProps = {
   orders;
@@ -22,80 +31,39 @@ interface order {
 }
 
 const Home: FC<THomeProps> = ({ orders }) => {
-  const [showMoreMenu, setShowMoreMenu] = useState(false);
-  const [openMoreButtonValue, setOpenMoreButtonValue] = useState(false);
-  const [showCookieMessage, setShowCookieMessage] = useState(true); // todo: Убрать это состояние в redux
+  const [cookies, setCookies] = useCookies(['authentication', 'acceptCookies']);
+  const { email, isLoading } = useTypedSelector((state) => state.user);
+  const { setUser, setUserLoading } = useActions();
 
-  function moreButtonClickHandler() {
-    setOpenMoreButtonValue(!openMoreButtonValue);
-    setShowMoreMenu(!showMoreMenu);
-  }
   function cookieButtonClickHandler() {
-    setShowCookieMessage(!showCookieMessage);
+    setCookies('acceptCookies', true);
   }
 
+  async function getMe() {
+    try {
+      setUserLoading(true);
+      const res = await axios.post('http://localhost:3000/users/getMe');
+      setUser(res.data);
+      setUserLoading(false);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  if (cookies.authentication) {
+    useEffect(() => {
+      getMe();
+    }, []);
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div id="app">
-      <div data-v-f6e5e9f4="" className="nprogress-container" />
-      <div data-v-f6e5e9f4="" className="notifications" />
-      <div data-v-f6e5e9f4="" className="modal-bg" />
-      <div data-v-2839e574="" data-v-f6e5e9f4="">
-        <nav data-v-2839e574="">
-          <div data-v-2839e574="" className="menu-container">
-            <div data-v-2839e574="" className="logo-holder">
-              <a
-                data-v-2839e574=""
-                href="/"
-                className="logo router-link-active"
-              />
-            </div>
-            <div data-v-2839e574="" className="left">
-              <ul data-v-2839e574="" className="is-www">
-                <li data-v-2839e574="">
-                  <a data-v-2839e574="" href="/marketplace" className="">
-                    Онлайн-рынок
-                  </a>
-                </li>
-                <li data-v-2839e574="">
-                  <a data-v-2839e574="" href="https://pricing" className="">
-                    Цены
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div data-v-2839e574="" className="right">
-              <ul data-v-2839e574="">
-                <li data-v-2839e574="">
-                  <a data-v-2839e574="" href="/auth/login" className="">
-                    ВОЙТИ
-                  </a>
-                </li>
-              </ul>
-              <a href="/auth/register">
-                <button
-                  data-v-b4a534bc=""
-                  data-v-2839e574=""
-                  className="get-started btn primary normal"
-                >
-                  Зарегистрироваться
-                </button>
-              </a>
-              {openMoreButtonValue ? (
-                <MoreButton
-                  buttonState={openMoreButtonValue}
-                  onClickHandler={moreButtonClickHandler}
-                />
-              ) : (
-                <MoreButton
-                  buttonState={openMoreButtonValue}
-                  onClickHandler={moreButtonClickHandler}
-                />
-              )}
-            </div>
-          </div>
-          {showMoreMenu ? <MoreMenu /> : ''}
-        </nav>
-      </div>
+      <NprogressContainer />
+      <Notifications />
+      <ModalBg />
+      <Navbar />
       <div data-v-f6e5e9f4="" className="page">
         <div data-v-33d3efc4="" data-v-f6e5e9f4="">
           <div
@@ -183,15 +151,17 @@ const Home: FC<THomeProps> = ({ orders }) => {
                         }}
                       />
                     </div>
-                    <a data-v-33d3efc4="" href="/marketplace/SHA256">
-                      <button
-                        data-v-b4a534bc=""
-                        data-v-33d3efc4=""
-                        className="btn primary medium fluid"
-                      >
-                        <span data-v-b4a534bc="">Buy HashPower</span>
-                      </button>
-                    </a>
+                    <Link href="/marketplace/SHA256">
+                      <a data-v-33d3efc4="">
+                        <button
+                          data-v-b4a534bc=""
+                          data-v-33d3efc4=""
+                          className="btn primary medium fluid"
+                        >
+                          <span data-v-b4a534bc="">Buy HashPower</span>
+                        </button>
+                      </a>
+                    </Link>
                   </div>
                   <div data-v-33d3efc4="" className="col-md-4">
                     <div data-v-33d3efc4="" className="coin">
@@ -230,15 +200,17 @@ const Home: FC<THomeProps> = ({ orders }) => {
                         }}
                       />
                     </div>
-                    <a data-v-33d3efc4="" href="/marketplace/DAGGERHASHIMOTO">
-                      <button
-                        data-v-b4a534bc=""
-                        data-v-33d3efc4=""
-                        className="btn primary medium fluid"
-                      >
-                        <span data-v-b4a534bc="">Buy HashPower</span>
-                      </button>
-                    </a>
+                    <Link href="/marketplace/DAGGERHASHIMOTO">
+                      <a data-v-33d3efc4="">
+                        <button
+                          data-v-b4a534bc=""
+                          data-v-33d3efc4=""
+                          className="btn primary medium fluid"
+                        >
+                          <span data-v-b4a534bc="">Buy HashPower</span>
+                        </button>
+                      </a>
+                    </Link>
                   </div>
                   <div data-v-33d3efc4="" className="col-md-4">
                     <div data-v-33d3efc4="" className="coin">
@@ -275,26 +247,30 @@ const Home: FC<THomeProps> = ({ orders }) => {
                         }}
                       />
                     </div>
-                    <a data-v-33d3efc4="" href="/marketplace/SCRYPT">
-                      <button
-                        data-v-b4a534bc=""
-                        data-v-33d3efc4=""
-                        className="btn primary medium fluid"
-                      >
-                        <span data-v-b4a534bc="">Buy HashPower</span>
-                      </button>
-                    </a>
+                    <Link href="/marketplace/SCRYPT">
+                      <a data-v-33d3efc4="">
+                        <button
+                          data-v-b4a534bc=""
+                          data-v-33d3efc4=""
+                          className="btn primary medium fluid"
+                        >
+                          <span data-v-b4a534bc="">Buy HashPower</span>
+                        </button>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div data-v-33d3efc4="" className="row">
                 <div data-v-33d3efc4="" className="col-sm-1" />
                 <div data-v-33d3efc4="" className="col-sm-10 text-center">
-                  <a data-v-33d3efc4="" href="/pricing" className="">
-                    <h4 data-v-33d3efc4="" className="mb48">
-                      Посмотреть все цены
-                    </h4>
-                  </a>
+                  <Link href="/pricing">
+                    <a data-v-33d3efc4="" className="">
+                      <h4 data-v-33d3efc4="" className="mb48">
+                        Посмотреть все цены
+                      </h4>
+                    </a>
+                  </Link>
                 </div>
                 <div data-v-33d3efc4="" className="col-sm-1" />
               </div>
@@ -436,13 +412,14 @@ const Home: FC<THomeProps> = ({ orders }) => {
               <div data-v-33d3efc4="" className="col-md-10 text-center">
                 <br data-v-33d3efc4="" />
                 <br data-v-33d3efc4="" />
-                <a
-                  data-v-33d3efc4=""
-                  href="/marketplace"
-                  className="btn primary medium buy-hashpower-btn"
-                >
-                  КУПИТЬ МОЩНОСТЬ
-                </a>
+                <Link href="/marketplace">
+                  <a
+                    data-v-33d3efc4=""
+                    className="btn primary medium buy-hashpower-btn"
+                  >
+                    КУПИТЬ МОЩНОСТЬ
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -459,8 +436,7 @@ const Home: FC<THomeProps> = ({ orders }) => {
           </div>
         </div>
       </footer>
-
-      {showCookieMessage ? (
+      {!cookies.acceptCookies ? (
         <div
           data-v-c3717c66=""
           data-v-f6e5e9f4=""
@@ -491,7 +467,10 @@ const Home: FC<THomeProps> = ({ orders }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<THomeProps> = async () => {
+export const getServerSideProps: GetServerSideProps<THomeProps> = async (
+  context,
+) => {
+  console.log('getServerSideProps index');
   const { list: orders } = await fetch(
     'https://api2.nicehash.com/main/api/v2/public/orders/active2',
   );
@@ -517,5 +496,4 @@ export const getServerSideProps: GetServerSideProps<THomeProps> = async () => {
   }
   return { props: { orders: worstOrders } };
 };
-
 export default Home;
