@@ -202,11 +202,11 @@
 }
 
 .mainTopMenu .mobileMenu .options a.routerLinkActive, .mainTopMenu .mobileMenu .options a.router-link-active i.fa, .main-top-menu .mobile-menu .options a.router-link-active i.fas {
-    color: #4ddeff
+    color: #97C5FF
 }
 
 .mainTopMenu .mobileMenu .options a.wallets {
-    border: 1px solid #4ddeff;
+    border: 1px solid #97C5FF;
     border-radius: 4px;
     float: none;
     font-size: 12px;
@@ -228,11 +228,11 @@
 }
 
 .mainTopMenu .mobileMenu.open {
-    border-bottom: 2px solid #4ddeff
+    border-bottom: 2px solid #97C5FF
 }
 
 .mainTopMenu .mobileMenu.open .selected {
-    color: #4ddeff
+    color: #97C5FF
 }
 
 .mainTopMenu .mobileMenu.open .options {
@@ -464,13 +464,13 @@ ul.menuLeft li a {
 }
 
 ul.menuLeft li a:hover {
-    border-bottom: 2px solid rgba(77, 222, 255, 255);
-    color: #4ddeff;
+    border-bottom: 2px solid rgba(113, 197, 221, 255);
+    color: #71C4DD;
 }
 
 ul.menuLeft li a.routerLinkActive, ul.menuLeft li a.selected {
-    border-bottom: 2px solid rgba(77, 222, 255, 255);
-    color: #4ddeff;
+    border-bottom: 2px solid rgba(113, 197, 221, 255);
+    color: #71C4DD;
 }
 
 ul.menuLeft li a i.fa, ul.menuLeft li a i.fas {

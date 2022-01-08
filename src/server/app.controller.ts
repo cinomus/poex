@@ -11,4 +11,22 @@ export class AppController {
     console.log('index');
     return {};
   }
+  @Get('pricing')
+  @Render('pricing')
+  pricing() {
+    console.log('pricing');
+    return {};
+  }
+  @Get('my/dashboard')
+  @Render('my/dashboard')
+  dashboard() {
+    console.log('dashboard');
+    return {};
+  }
+  @Get('my/wallets')
+  @Render('my/wallets')
+  wallets() {
+    console.log('wallets');
+    return {};
+  }
 }

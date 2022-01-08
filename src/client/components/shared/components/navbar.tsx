@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import DropdownBoxWithEmail from './dropdownWithEmail';
 import MoreButton from '../../mainPage/moreButton';

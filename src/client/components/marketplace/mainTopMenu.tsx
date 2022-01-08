@@ -17,7 +17,10 @@ const MainTopMenu: FC = () => {
     <div
       className={cookies.authentication ? s.mainTopMenu : s.mainTopMenuUnLog}
     >
-      <a href="/" className={s.logo} />
+      <Link href="/">
+        <a className={s.logo} />
+      </Link>
+
       {!cookies.authentication ? (
         ''
       ) : (

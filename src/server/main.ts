@@ -4,10 +4,11 @@ import cookieParser from 'cookie-parser';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import config from 'config';
 import { RenderService } from 'nest-next';
-import { resolve } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
 
   const service = app.get(RenderService);
 
@@ -16,7 +17,6 @@ async function bootstrap() {
     if (req.method === 'POST') {
       return res.send(err.response);
     }
-    // return res.render('404');
   });
 
   const swaggerConfig = new DocumentBuilder()
@@ -33,5 +33,4 @@ async function bootstrap() {
   await app.listen(config.get('PORT'));
 }
 
-console.log(resolve(__dirname, '..'));
 bootstrap();

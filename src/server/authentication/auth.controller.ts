@@ -27,13 +27,14 @@ export class AuthController {
     private usersService: UsersService,
   ) {}
 
-  @Render('register')
+  @Render('auth/register')
   @Get('register')
   async registration() {
     console.log('register');
     return {};
   }
-  @Render('login')
+
+  @Render('auth/login')
   @Get('login')
   async login() {
     console.log('login');
@@ -47,7 +48,7 @@ export class AuthController {
     @Body() createUserDto: CreateUserDto,
     @Req() request: any,
     @Res({ passthrough: true }) response,
-  ): Promise<TokenRes> {
+  ): Promise<UserResp> {
     const { user, accessTokenCookie, refreshTokenCookie } =
       await this.authService.registration(createUserDto);
     // await this.emailConfirmationService.sendVerificationLink(
@@ -65,12 +66,9 @@ export class AuthController {
       refreshTokenCookie.options,
     );
 
-    return {
-      user: new UserResp(await toObject(user)),
-      accessToken: accessTokenCookie.token,
-      refreshToken: refreshTokenCookie.token,
-    };
+    return new UserResp(await toObject(user));
   }
+
   @UseInterceptors(ClassSerializerInterceptor)
   @ApiOperation({ summary: 'Авторизация пользователя.' })
   @ApiResponse({ status: 200, type: TokenRes })
@@ -79,8 +77,7 @@ export class AuthController {
     @Body() createUserDto: CreateUserDto,
     @Req() request: Request,
     @Res({ passthrough: true }) response: Response,
-  ): Promise<TokenRes> {
-    console.log('auth controller req', request);
+  ): Promise<UserResp> {
     const { user, accessTokenCookie, refreshTokenCookie } =
       await this.authService.login(createUserDto);
 
@@ -94,11 +91,7 @@ export class AuthController {
       refreshTokenCookie.token,
       refreshTokenCookie.options,
     );
-    return {
-      user: new UserResp(await toObject(user)),
-      accessToken: accessTokenCookie.token,
-      refreshToken: refreshTokenCookie.token,
-    };
+    return new UserResp(await toObject(user));
   }
 
   @ApiOperation({ summary: 'Разлогинивание пользователя.' })
@@ -126,12 +119,10 @@ export class AuthController {
   async refreshApi(
     @Req() req,
     @Res({ passthrough: true }) response,
-  ): Promise<TokenRes> {
-    console.log('auth controller refresh');
+  ): Promise<UserResp> {
     const refreshToken = req.cookies.refresh;
     const { user, accessTokenCookie, refreshTokenCookie } =
       await this.authService.refresh(refreshToken);
-
     response.cookie(
       'authentication',
       accessTokenCookie.token,
@@ -142,11 +133,6 @@ export class AuthController {
       refreshTokenCookie.token,
       refreshTokenCookie.options,
     );
-    console.log(user);
-    return {
-      user: new UserResp(await toObject(user)),
-      accessToken: accessTokenCookie.token,
-      refreshToken: refreshTokenCookie.token,
-    };
+    return new UserResp(await toObject(user));
   }
 }

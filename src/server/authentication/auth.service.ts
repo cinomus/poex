@@ -85,16 +85,12 @@ export class AuthService {
     }
     const validate = await this.validateToken(refreshToken);
     const user = await this.usersService.findByRefreshToken(refreshToken);
-    console.log(!validate, !user);
+
     if (!validate) {
       // если токен не валиден и юзера с таким токеном нет, то выбрасываем ошибку и удаляем токен из бд?
       if (user) {
-        console.log(
-          'auth.service токен не валиден но юзер с таким токеном есть',
-        );
         await this.usersService.removeRefreshToken(refreshToken);
       }
-      console.log('auth.service токен не валиден и нет юзера с таким токеном ');
       throw new UnauthorizedException();
     }
 
@@ -104,13 +100,11 @@ export class AuthService {
     const refreshTokenCookie = await this.getCookieWithJwtRefreshToken(
       user.email,
     );
-
     await this.usersService.setCurrentTokens(
       refreshTokenCookie.token,
       accessTokenCookie.token,
       user.email,
     );
-
     return {
       user,
       accessTokenCookie: accessTokenCookie,
@@ -133,7 +127,6 @@ export class AuthService {
       'JWT_ACCESS_TOKEN_EXPIRATION_TIME',
     )}`;
     const options = {
-      domain: '0f57-109-201-110-81.ngrok.io',
       httpOnly: false,
       maxAge: 1 * 1 * 60 * 60 * 1000,
       // expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
@@ -151,7 +144,6 @@ export class AuthService {
       'JWT_REFRESH_TOKEN_EXPIRATION_TIME',
     )}`;
     const options = {
-      domain: '0f57-109-201-110-81.ngrok.io',
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
       // expires: new Date(Date.now() + 1000 * 60 * 60 * 24),

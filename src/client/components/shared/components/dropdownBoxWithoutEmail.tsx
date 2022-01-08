@@ -63,28 +63,28 @@ const DropdownBoxWithoutEmail = () => {
               </div>
               <div className={s.name} />
               <div className={s.email}>{email}</div>
-              <a
-                href="https://www.nicehash.com/my/settings/"
-                className={classnames(s.btn, s.primary, 'btn primary small')}
-              >
-                Мои настройки
-              </a>
+              {/*<a*/}
+              {/*  href="https://www.nicehash.com/my/settings/"*/}
+              {/*  className={classnames(s.btn, s.primary, 'btn primary small')}*/}
+              {/*>*/}
+              {/*  Мои настройки*/}
+              {/*</a>*/}
             </div>
-            <div className={s.option}>
-              <a className={s.nohover}>
-                <i className="far fa-window-restore" /> Темная тема
-                <label className={classnames('pull-right', s.switch)}>
-                  <input type="checkbox" />
-                  <span className={s.slider} />
-                </label>
-              </a>
-            </div>
-            <div className={s.option}>
-              <a href="https://www.nicehash.com/support" className="pointer">
-                <i className="fa fa-question-circle" />
-                Справка и поддержка
-              </a>
-            </div>
+            {/*<div className={s.option}>*/}
+            {/*  <a className={s.nohover}>*/}
+            {/*    <i className="far fa-window-restore" /> Темная тема*/}
+            {/*    <label className={classnames('pull-right', s.switch)}>*/}
+            {/*      <input type="checkbox" />*/}
+            {/*      <span className={s.slider} />*/}
+            {/*    </label>*/}
+            {/*  </a>*/}
+            {/*</div>*/}
+            {/*<div className={s.option}>*/}
+            {/*  <a href="https://www.nicehash.com/support" className="pointer">*/}
+            {/*    <i className="fa fa-question-circle" />*/}
+            {/*    Справка и поддержка*/}
+            {/*  </a>*/}
+            {/*</div>*/}
             <div className={s.option}>
               <a className="pointer" onClick={logout}>
                 <i className="fa fa-sign-out-alt" /> Выйти

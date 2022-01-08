@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
-import loginStyles from '../../client/styles/loginFormStyle.module.css';
-import InputBox from '../../client/components/loginPage/inputBox';
+import loginStyles from '../../../client/styles/loginFormStyle.module.css';
+import InputBox from '../../../client/components/loginPage/inputBox';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import SelectBox from '../../client/components/registerPage/selectBox';
-import ErrorBox from '../../client/components/shared/components/errorBox';
+import SelectBox from '../../../client/components/registerPage/selectBox';
+import ErrorBox from '../../../client/components/shared/components/errorBox';
+import Link from 'next/link';
 
 type TLoginProps = {
   // ДОбавить тип
@@ -487,22 +488,20 @@ const Register: FC<TLoginProps> = (props) => {
                   data-v-75842485=""
                   className="text-center mt24"
                 >
-                  <a
-                    data-v-70c03fa5=""
-                    href="https://www.nicehash.com/my/login"
-                    className="text-muted"
-                    data-v-75842485=""
-                  >
-                    Уже есть аккаунт?
-                  </a>{' '}
-                  <a
-                    data-v-70c03fa5=""
-                    href="http://localhost:3000/auth/login"
-                    className=""
-                    data-v-75842485=""
-                  >
-                    Войти
-                  </a>
+                  <Link href="/auth/login">
+                    <a
+                      data-v-70c03fa5=""
+                      className="text-muted"
+                      data-v-75842485=""
+                    >
+                      Уже есть аккаунт?
+                    </a>
+                  </Link>{' '}
+                  <Link href="/auth/login">
+                    <a data-v-70c03fa5="" className="" data-v-75842485="">
+                      Войти
+                    </a>
+                  </Link>
                 </div>
               </form>
             </div>

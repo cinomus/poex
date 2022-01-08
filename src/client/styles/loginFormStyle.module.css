@@ -96,7 +96,7 @@
 }
 
 .icon .logo {
-    background-color: #fff;
+    /*background-color: #fff;*/
     background-image: url(../../../public/images/shared/logo.png);
     background-position: 50%;
     background-repeat: no-repeat;
@@ -106,8 +106,26 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: transform .8s ease-in-out;
     width: 150px
 
+
+}
+@keyframes moving {
+    100% {
+        transform: translate(-50%, -50%) rotate(-540deg);
+    }
+}
+@keyframes movingBack {
+    100% {
+        transform: translate(-50%, -50%) rotate(-540deg);
+    }
+}
+
+
+.logo:hover {
+    -webkit-transform: translate(-50%, -50%) rotate(-540deg);;
+    transform: translate(-50%, -50%) rotate(-540deg);;
 }
 
 .twofaInvalid .close {

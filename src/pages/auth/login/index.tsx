@@ -2,10 +2,10 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { FC, useEffect } from 'react';
 import { fetch } from 'src/shared/utils/fetch';
-import loginStyles from '../../client/styles/loginFormStyle.module.css';
-import mainStyles from '../../client/styles/mainStyles.module.css';
+import loginStyles from '../../../client/styles/loginFormStyle.module.css';
+import mainStyles from '../../../client/styles/mainStyles.module.css';
 import classnames from 'classnames';
-import LoginBox from '../../client/components/loginPage/loginBox';
+import LoginBox from '../../../client/components/loginPage/loginBox';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
 

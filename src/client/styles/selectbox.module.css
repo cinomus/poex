@@ -66,7 +66,7 @@ div.selectbox:focus {
 }
 
 div.selectbox:focus .field {
-    border: 1px solid #fba342;
+    border: 1px solid #71C4DD;
     box-shadow: 0 5px 10px 0 rgba(251, 163, 66, .1)
 }
 
@@ -174,7 +174,7 @@ div.selectbox .dropdown .search input {
 }
 
 div.selectbox .dropdown .search input:focus {
-    border: 1px solid #fba342;
+    border: 1px solid #71C4DD;
     outline: none
 }
 
@@ -205,11 +205,11 @@ div.selectbox .dropdown .options .option {
 }
 
 div.selectbox .dropdown .options .option:hover {
-    background-color: rgba(251, 163, 66, .25)
+    background-color: rgba(209, 247, 255, 255)
 }
 
 div.selectbox .dropdown .options .option.selected {
-    background-color: #fba342;
+    background-color: #71C4DD;
     color: #fff
 }
 

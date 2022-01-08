@@ -70,10 +70,8 @@ export class UsersController {
   @UseInterceptors(ClassSerializerInterceptor)
   @Post('/getMe')
   async getOneByAccessToken(@Req() req: Request) {
-    console.log('users controller get me cookie', req.cookies);
     const accessToken = req.cookies.authentication;
     const user = await this.usersService.getUserByAccessToken(accessToken);
-    console.log('users controller get me user', user);
     return new UserResp(await toObject(user));
   }
 

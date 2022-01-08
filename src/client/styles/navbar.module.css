@@ -111,13 +111,13 @@
 }
 
 .nav ul li a[data-v-2839e574]:hover {
-    border-bottom: 2px solid rgba(77, 222, 255, 255);
-    color: #4ddeff
+    border-bottom: 2px solid rgba(113, 196, 221, 255);
+    color: #71C4DD
 }
 
 .nav ul li a.routerLinkActive[data-v-2839e574] {
-    border-bottom: 2px solid #fba342;
-    color: #fba342
+    border-bottom: 2px solid #71C4DD;
+    color: #71C4DD
 }
 
 .nav ul li a.bl[data-v-2839e574] {
@@ -201,7 +201,7 @@
 }
 
 .nav .left .moredown .options a.routerLinkActive[data-v-2839e574] {
-    color: #fba342
+    color: #71C4DD
 }
 
 .nav .left .moredown .options a[data-v-2839e574]:hover {
@@ -239,7 +239,7 @@
 }
 
 .nav .right a.backHome[data-v-2839e574]:hover {
-    color: #fba342
+    color: #71C4DD
 }
 
 .nav .right a.backHome i[data-v-2839e574] {

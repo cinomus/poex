@@ -1,9 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import s from '../../styles/container4xMarket.module.css';
 import classnames from 'classnames';
-import { GetServerSideProps } from 'next';
-import { fetch } from '../../../shared/utils/fetch';
-import { Property } from 'csstype';
 import { IOrder } from '../../../shared/types/types';
 
 interface Container4XMarketProps {
@@ -80,7 +77,144 @@ const Container4XMarket: FC<Container4XMarketProps> = ({
               </h1>
             </div>
           </div>
+          <div data-v-2460df9b="" data-v-518f13f8="" className={s.marketOrder}>
+            <hr data-v-2460df9b="" />
+            <button
+              data-v-b4a534bc=""
+              data-v-2460df9b=""
+              className="mb24 btn primary normal outline fluid"
+            >
+              <span data-v-b4a534bc="">Скрыть форму ордера</span>
+            </button>
+            <div data-v-2460df9b="" className="row mt24">
+              <div data-v-2460df9b="" className="col-sm-4">
+                <div
+                  data-v-d4cf6a2a=""
+                  data-v-2460df9b=""
+                  className="field-wrap input-null"
+                >
+                  <div data-v-d4cf6a2a="">
+                    <label data-v-d4cf6a2a="" className="mb8">
+                      Цена (BTC/TH/day)
+                      <i
+                        data-v-15eb5000=""
+                        data-v-d4cf6a2a=""
+                        className="fa fa-info-circle info has-tooltip"
+                        data-original-title="null"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    data-v-1e3c7d4e=""
+                    data-v-2460df9b=""
+                    className={s.inputGroup}
+                    data-v-d4cf6a2a=""
+                  >
+                    <input
+                      data-v-1e3c7d4e=""
+                      type="text"
+                      placeholder="Цена"
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+                <small data-v-2460df9b="" className={s.fieldNote}>
+                  &nbsp;
+                </small>
+              </div>
+              <div data-v-2460df9b="" className="col-sm-4">
+                <div
+                  data-v-d4cf6a2a=""
+                  data-v-2460df9b=""
+                  className="field-wrap input-null"
+                >
+                  <div data-v-d4cf6a2a="">
+                    <label data-v-d4cf6a2a="" className="mb8">
+                      Ограничение (TH/s)
+                      <i
+                        data-v-15eb5000=""
+                        data-v-d4cf6a2a=""
+                        className="fa fa-info-circle info has-tooltip"
+                        data-original-title="null"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    data-v-1e3c7d4e=""
+                    data-v-2460df9b=""
+                    className={s.inputGroup}
+                    data-v-d4cf6a2a=""
+                  >
+                    <input
+                      data-v-1e3c7d4e=""
+                      type="text"
+                      placeholder="Ограничение"
+                      className="form-control"
+                    />
+                  </div>
+                  <small
+                    data-v-2460df9b=""
+                    data-v-d4cf6a2a=""
+                    className={s.fieldNote}
+                  >
+                    Мин: 0.001
+                  </small>
+                </div>
+              </div>
+              <div data-v-2460df9b="" className="col-sm-4">
+                <div
+                  data-v-d4cf6a2a=""
+                  data-v-2460df9b=""
+                  className="field-wrap input-null"
+                >
+                  <div data-v-d4cf6a2a="">
+                    <label data-v-d4cf6a2a="" className="mb8">
+                      Сумма (BTC)
+                      <i
+                        data-v-15eb5000=""
+                        data-v-d4cf6a2a=""
+                        className="fa fa-info-circle info has-tooltip"
+                        data-original-title="null"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    data-v-1e3c7d4e=""
+                    data-v-2460df9b=""
+                    className={s.inputGroup}
+                    data-v-d4cf6a2a=""
+                  >
+                    <input
+                      data-v-1e3c7d4e=""
+                      type="text"
+                      placeholder="сумма"
+                      className="form-control"
+                    />
+                  </div>
+                  <small
+                    data-v-2460df9b=""
+                    data-v-d4cf6a2a=""
+                    className={s.fieldNote}
+                  >
+                    Баланс 0.00000000 BTC
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div data-v-2460df9b="" className="text-center">
+              <button
+                data-v-b4a534bc=""
+                data-v-2460df9b=""
+                className="btn primary medium fluid mt24"
+              >
+                <span data-v-b4a534bc="">
+                  Разместить ордер на EU - West рынке
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
+
         <div data-v-518f13f8="" className={s.marketOrders}>
           <div
             data-v-46aefae6=""
@@ -136,7 +270,15 @@ const Container4XMarket: FC<Container4XMarketProps> = ({
                 <tbody data-v-46aefae6="">
                   {orders.map((order, key) => {
                     return (
-                      <tr data-v-46aefae6="" key={key} className="standard">
+                      <tr
+                        data-v-46aefae6=""
+                        key={key}
+                        className={
+                          order.alive === true
+                            ? 'standard'
+                            : classnames(s.deadRow, 'standard')
+                        }
+                      >
                         <td data-v-46aefae6="">
                           <div
                             data-v-f61360be=""

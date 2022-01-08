@@ -1,6 +1,7 @@
 import React from 'react';
 import s from '../../../styles/footer-1.module.css';
 import classnames from 'classnames';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -9,10 +10,12 @@ const Footer = () => {
         <div className={classnames('col-lg-7', 'col-sm-12', s.leftPart)}>
           <ul>
             <li>
-              <a href="https://www.nicehash.com/">
-                <i className="fa fa-level-up-alt fa-rotate-270 mr8" />
-                На главную
-              </a>
+              <Link href="/">
+                <a>
+                  <i className="fa fa-level-up-alt fa-rotate-270 mr8" />
+                  На главную
+                </a>
+              </Link>
             </li>
           </ul>
         </div>

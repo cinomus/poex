@@ -14,6 +14,7 @@ import ErrorBox from '../shared/components/errorBox';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useAction';
 import { useCookies } from 'react-cookie';
+import { timeout } from 'rxjs';
 
 const LoginBox: FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -34,20 +35,10 @@ const LoginBox: FC = () => {
     };
 
     try {
-      const res = await axios.post('http://localhost:3000/auth/login', body);
+      const res = await axios.post('/auth/login', body);
       if (res.status === 201) {
         console.log(res.data);
-        setUser(res.data.user);
-        if (!cookies.authentication) {
-          setCookies('authentication', res.data.accessToken, {
-            path: '/',
-            maxAge: 60 * 60 * 1000,
-          });
-          setCookies('refresh', res.data.refreshToken, {
-            path: '/',
-            maxAge: 30 * 24 * 60 * 60 * 1000,
-          });
-        }
+        setUser(res.data);
         await router.push('/');
         console.log('Отправлен запрос');
       } else {
@@ -63,6 +54,13 @@ const LoginBox: FC = () => {
       console.error('An unexpected error happened occurred:', error);
     }
   }
+
+  function spinLogo() {
+    setTimeout(() => {
+      setInterval(() => {}, 5000);
+    }, 2000);
+  }
+
   return (
     <div className={loginStyles.box}>
       <div className={loginStyles.boxInner}>
@@ -79,9 +77,9 @@ const LoginBox: FC = () => {
           {showError ? <ErrorBox value={errorValue} /> : ''}
           <div className="text-center mb24">
             <span className="text-muted">Первый раз у нас? </span>
-            <a href="http://localhost:3000/auth/register" className="">
-              Зарегистрируйтесь
-            </a>
+            <Link href="/auth/register">
+              <a className="">Зарегистрируйтесь</a>
+            </Link>
           </div>
           <form onSubmit={onSubmit}>
             <InputBox

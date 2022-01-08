@@ -438,3 +438,93 @@
 .NOTACTIVEType[data-v-76b8bfca] {
     color: #fba342
 }
+.marketOrder[data-v-2460df9b] {
+    margin-top: 12px;
+}
+.marketOrder hr[data-v-2460df9b] {
+    margin-bottom: 16px;
+}
+.fieldNote[data-v-2460df9b] {
+    color: #959595;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+}
+div.selectbox[data-v-5760e22c] {
+    position: relative;
+}
+div.selectbox .field[data-v-5760e22c] {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(35 35 35 / 16%);
+    color: #3a3939;
+    cursor: pointer;
+    font-size: 14px;
+    height: 39px;
+    line-height: 39px;
+    overflow: hidden;
+    padding: 0 32px 0 16px;
+    text-overflow: ellipsis;
+    transition: box-shadow .2s ease;
+    white-space: nowrap;
+}
+div.selectbox .field.placeholder[data-v-5760e22c] {
+    color: #cecdcd;
+}
+div.selectbox .arrows[data-v-5760e22c] {
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    width: 15px;
+}
+div.selectbox .dropdown[data-v-5760e22c] {
+    background: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(35 35 35 / 16%);
+    flex-direction: column;
+    max-height: 0;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    transition: max-height .2s;
+    z-index: 2;
+}
+.selectbox .dropdown .options[data-v-5760e22c] {
+    flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.selectbox .dropdown .options .option[data-v-5760e22c] {
+    cursor: pointer;
+    padding: 8px 16px;
+}
+.marketOrder label[data-v-d4cf6a2a] {
+    color: #959595;
+    display: inline-block;
+    font-size: 12px;
+}
+.inputGroup[data-v-1e3c7d4e] {
+    position: relative;
+}
+.formControl {
+    width: 100%;
+}
+.inputGroup input[data-v-1e3c7d4e] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(35 35 35 / 16%);
+    color: #3a3939;
+    font-size: 14px;
+    margin: 0;
+    padding: 9px 16px 11px;
+    transition: box-shadow .2s ease;
+}

@@ -61,6 +61,7 @@ export class UsersService {
   }
 
   async findByRefreshToken(refreshToken: string): Promise<User> {
+    console.log('user service', refreshToken);
     return this.userModel.findOne({ refreshToken: refreshToken });
   }
 

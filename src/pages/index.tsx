@@ -13,6 +13,7 @@ import { useTypedSelector } from '../client/hooks/useTypedSelector';
 import Navbar from '../client/components/shared/components/navbar';
 import axios from 'axios';
 import { useActions } from '../client/hooks/useAction';
+import HomePageLayout from '../client/layouts/homePageLayout';
 
 type THomeProps = {
   orders;
@@ -31,39 +32,8 @@ interface order {
 }
 
 const Home: FC<THomeProps> = ({ orders }) => {
-  const [cookies, setCookies] = useCookies(['authentication', 'acceptCookies']);
-  const { email, isLoading } = useTypedSelector((state) => state.user);
-  const { setUser, setUserLoading } = useActions();
-
-  function cookieButtonClickHandler() {
-    setCookies('acceptCookies', true);
-  }
-
-  async function getMe() {
-    try {
-      setUserLoading(true);
-      const res = await axios.post('http://localhost:3000/users/getMe');
-      setUser(res.data);
-      setUserLoading(false);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  if (cookies.authentication) {
-    useEffect(() => {
-      getMe();
-    }, []);
-  }
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
   return (
-    <div id="app">
-      <NprogressContainer />
-      <Notifications />
-      <ModalBg />
-      <Navbar />
+    <HomePageLayout>
       <div data-v-f6e5e9f4="" className="page">
         <div data-v-33d3efc4="" data-v-f6e5e9f4="">
           <div
@@ -92,9 +62,8 @@ const Home: FC<THomeProps> = ({ orders }) => {
                     className="col-md-8"
                   >
                     <p data-v-33d3efc4="" data-v-1759faec="" className="mb80">
-                      Забудьте о скамах облачного майнинга. PoEx позволяет вам
-                      покупать
-                      <br /> мощность для майнинга у других людей.
+                      PoEx позволяет вам покупать мощность для майнинга у других
+                      людей.
                     </p>
                   </div>
                 </div>
@@ -425,45 +394,7 @@ const Home: FC<THomeProps> = ({ orders }) => {
           </div>
         </div>
       </div>
-      <footer data-v-742affac="" data-v-f6e5e9f4="">
-        <div data-v-742affac="" className="container pt48">
-          <hr data-v-742affac="" />
-          <div data-v-742affac="" className="row">
-            <div data-v-742affac="" className="col-sm-6 text-center legal">
-              <br data-v-742affac="" />
-              Copyright © 2021
-            </div>
-          </div>
-        </div>
-      </footer>
-      {!cookies.acceptCookies ? (
-        <div
-          data-v-c3717c66=""
-          data-v-f6e5e9f4=""
-          className="Cookie Cookie--bottom Cookie--base"
-        >
-          <div data-v-c3717c66="" className="container">
-            <div data-v-c3717c66="" className="row">
-              <div data-v-c3717c66="" className="col-sm-8 text">
-                Этот веб-сайт использует куки для обеспечения наилучшего опыта.
-              </div>
-              <div data-v-c3717c66="" className="col-sm-4 text-right">
-                <button
-                  onClick={cookieButtonClickHandler}
-                  data-v-b4a534bc=""
-                  data-v-c3717c66=""
-                  className="btn primary success normal"
-                >
-                  Понятно!
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        ''
-      )}
-    </div>
+    </HomePageLayout>
   );
 };
 
@@ -474,6 +405,7 @@ export const getServerSideProps: GetServerSideProps<THomeProps> = async (
   const { list: orders } = await fetch(
     'https://api2.nicehash.com/main/api/v2/public/orders/active2',
   );
+
   const worstOrders = getBestOrdersByAlgorithm(orders);
 
   function getBestOrdersByAlgorithm(orders: order[]) {
