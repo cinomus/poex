@@ -8,7 +8,7 @@ import { ICountry } from '../../../../shared/types/types';
 export type UserDocument = User & Document;
 @Schema({ versionKey: false })
 export class User {
-  _id: ObjectId;
+  _id: ObjectId | string;
   @ApiProperty({
     example: 'userLogins, email@example.com',
     description: 'Логин пользователя',
@@ -26,8 +26,6 @@ export class User {
     description: 'Причина блокировки пользователя',
   })
   @Prop()
-  banReason: string;
-  @Prop()
   accessToken: string;
   @Prop()
   oldestAccessTokens: string[];
@@ -38,7 +36,7 @@ export class User {
   @Prop({ type: {} })
   country: ICountry;
   @Prop({ type: Date, default: Date.now })
-  reg_time: Date;
+  reg_time: Date | string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

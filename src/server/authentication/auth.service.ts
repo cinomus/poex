@@ -155,6 +155,9 @@ export class AuthService {
   }
 
   private async validateUser(userDto: CreateUserDto) {
+    if (!userDto.email || !userDto.password) {
+      throw new UnauthorizedException();
+    }
     const user = await this.usersService.getUserByEmail(userDto.email);
     if (!user) {
       throw new UnauthorizedException({

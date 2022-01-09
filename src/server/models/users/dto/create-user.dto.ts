@@ -10,7 +10,7 @@ export class CreateUserDto {
     example: 'obj',
     description: 'Выбранная пользователем страна',
   })
-  readonly country: ICountry;
+  readonly country?: ICountry;
   @ApiProperty({ example: 'true', description: 'Подписка на рассылку' })
-  readonly sub: boolean;
+  readonly sub?: boolean;
 }

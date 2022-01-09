@@ -7,6 +7,7 @@ import {
   Render,
   Req,
   Res,
+  UnauthorizedException,
   UseInterceptors,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -78,9 +79,11 @@ export class AuthController {
     @Req() request: Request,
     @Res({ passthrough: true }) response: Response,
   ): Promise<UserResp> {
+    if (!createUserDto.email || !createUserDto.password) {
+      throw new UnauthorizedException();
+    }
     const { user, accessTokenCookie, refreshTokenCookie } =
       await this.authService.login(createUserDto);
-
     response.cookie(
       'authentication',
       accessTokenCookie.token,

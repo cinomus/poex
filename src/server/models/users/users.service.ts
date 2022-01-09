@@ -9,12 +9,6 @@ import { AddRoleDto } from './dto/add-role.dto';
 import { BanUserDto } from './dto/ban-user.dto';
 import { from, toArray } from 'rxjs';
 
-const BLOG_POSTS = [
-  { email: 'Lorem Ipsum', _id: 1 },
-  { email: 'Dolore Sit', _id: 2 },
-  { email: 'Ame', _id: 3 },
-];
-
 @Injectable()
 export class UsersService {
   constructor(
@@ -120,7 +114,6 @@ export class UsersService {
     }
 
     user.banned = true;
-    user.banReason = banUserDto.banReason;
 
     user.save();
     return user;

@@ -3,6 +3,7 @@ import { Role } from '../../roles/schemas/role.schema';
 import { User } from '../schemas/user.schema';
 import { ObjectId } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
+import { ICountry } from '../../../../shared/types/types';
 
 export class UserResp {
   @ApiProperty({
@@ -14,7 +15,7 @@ export class UserResp {
     example: '12344dsvsas14gs',
     description: 'Id пользователя в системе.',
   })
-  _id: ObjectId;
+  _id: ObjectId | string;
   @ApiProperty({
     example: 'true',
     description: 'Значение true or false блокировки пользователя',
@@ -26,11 +27,12 @@ export class UserResp {
     description: 'Роли доступные пользователю.',
   })
   roles: Role[];
-
+  @Exclude()
+  country: ICountry;
   @Exclude()
   password: string;
   @Exclude()
-  reg_time: Date;
+  reg_time: Date | string;
   @Exclude()
   refreshToken: string;
   @Exclude()
