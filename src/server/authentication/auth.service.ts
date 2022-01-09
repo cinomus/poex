@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   HttpException,
   HttpStatus,
   Injectable,
@@ -23,8 +24,17 @@ export class AuthService {
     // проверить есть ли юзер с таким username
     // сохранить в бд если нет и вернуть ошибку если есть
     //
+    if (
+      !userDto.email ||
+      !userDto.password ||
+      userDto.email === '' ||
+      userDto.password === ''
+    ) {
+      throw new BadRequestException();
+    }
     const hashedPassword = await bcrypt.hash(userDto.password, 10);
     const candidate = await this.usersService.getUserByEmail(userDto.email);
+    console.log(candidate);
     if (candidate) {
       throw new UnauthorizedException({
         message: 'Пользователь с таким email уже существует.',
@@ -57,6 +67,14 @@ export class AuthService {
   }
 
   async login(userDto: CreateUserDto): Promise<ResCookieDto> {
+    if (
+      !userDto.email ||
+      !userDto.password ||
+      userDto.email === '' ||
+      userDto.password === ''
+    ) {
+      throw new UnauthorizedException();
+    }
     const user = await this.validateUser(userDto);
 
     const accessTokenCookie = await this.getCookieWithJwtAccessToken(

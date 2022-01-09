@@ -247,9 +247,9 @@
 }
 
 .mainTopMenu .menuRight .wallets {
-    border: 1px solid #8f14ff;
+    border: 1px solid #71C4DD;
     border-radius: 4px;
-    color: #8f14ff;
+    color: #71C4DD;
     display: inline-block;
     font-size: 14px;
     font-weight: 500;
@@ -267,7 +267,7 @@
 }
 
 .mainTopMenu .menuRight .wallets:hover {
-    background: #8f14ff;
+    background: #71C4DD;
     color: #fff
 }
 
@@ -276,13 +276,13 @@
 }
 
 .mainTopMenu .menuRight .wallets i {
-    color: #8f14ff;
+    color: #71C4DD;
     margin: 0;
     transition: color .2s ease
 }
 
 .mainTopMenu .menuRight .wallets.routerLinkActive, .mainTopMenu .menuRight .wallets.routerLinkActive i {
-    background: #8f14ff;
+    background: #71C4DD;
     color: #fff
 }
 
